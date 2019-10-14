@@ -23,7 +23,7 @@
     "react-navigation": "^3.13.0",
     "react-redux": "^7.1.1",
     "redux": "^4.0.4",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
     "expo-barcode-scanner": "~7.0.0"
   },
   "devDependencies": {
