@@ -5,6 +5,7 @@ import React from 'react';
 // import { Ionicons } from '@expo/vector-icons';
 import AppContainer from './src/NavRouter'
 
+
 class App extends React.Component {
   render() {
     return (
