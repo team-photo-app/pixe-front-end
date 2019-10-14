@@ -10,6 +10,7 @@ import SignUp from './src/views/Landing/components/SignUp.component';
 // import { Ionicons } from '@expo/vector-icons';
 import AppContainer from './src/NavRouter'
 
+
 class App extends React.Component {
   render() {
     return (
