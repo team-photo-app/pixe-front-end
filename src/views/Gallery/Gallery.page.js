@@ -12,10 +12,14 @@ class Gallery extends React.Component {
       <View>
         <Text>Keller Wedding</Text>
         <FlatList data={this.props.pictures} renderItem={itemData => (
-          <View key={itemData.item.key}>
-            <Picture key={itemData.item.key} description={itemData.item.description} url={itemData.item.url}/>
+          <View>
+            <Picture description={itemData.item.description} url={itemData.item.url}/>
+            <Text>{itemData.item.url}</Text>
           </View>
-        )}/>
+        )}
+        keyExtractor={((item,idx)=>{
+          return idx.toString()})}
+        />
       </View>
 
     )
