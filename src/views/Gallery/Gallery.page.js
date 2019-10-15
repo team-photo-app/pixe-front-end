@@ -1,20 +1,27 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { View, Image, Text, Button } from 'react-native';
+import { View, Image, Text, Button, FlatList } from 'react-native';
 
-
+// Note - Rememeber to remove Assets folder with puppies :(
 class Gallery extends React.Component {
-
-  handlePress(event) {
-    console.log(this.props);
-  }
 
   render () {
     return (
 
       <View>
-        <Button title="Event State" onPress={this.handlePress} />
         <Text>Keller Wedding</Text>
+        <FlatList data={this.props.pictures} renderItem={itemData => (
+          <View key={itemData.item.key}>
+            <Text>Description: {itemData.item.description}</Text>
+            <Text>ID: {itemData.item.description}</Text>
+            <Text>URL: {itemData.item.url}</Text>
+          </View>
+        )}/>
+        {/* {
+          this.props.pictures.map((image, idx) => {
+            return <Image key={idx} source={url}/>
+          })
+        } */}
       </View>
 
     )
@@ -24,8 +31,8 @@ class Gallery extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    pictures: state
+    pictures: state.eventReducer.eventPicturesIds,
   }
 }
 
-export default connect(mapStateToProps)(Gallery) ;
+export default connect(mapStateToProps, null)(Gallery) ;

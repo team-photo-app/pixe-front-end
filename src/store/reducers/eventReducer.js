@@ -9,15 +9,11 @@ const initState = {
     {username: 'fred90906'},
   ],
   eventPicturesIds: [
-    { eventPictureId: 'pictureabc', decription: 'This is pic abc'},
-    { eventPictureId: 'picturedef', decription: 'This is pic def'},
-    { eventPictureId: 'pictureghi', decription: 'This is pic ghi'},
-    { eventPictureId: 'picturejkl', decription: 'This is pic jkl'},
-    { eventPictureId: 'picturemno', decription: 'This is pic mno'},
-    { eventPictureId: 'pictureqrs', decription: 'This is pic qrs'},
-    { eventPictureId: 'picturetuv', decription: 'This is pic tuv'},
-    { eventPictureId: 'picturewxy', decription: 'This is pic wxy'},
-    { eventPictureId: 'picturez', decription: 'This is pic z'},
+    { key: 1, eventPictureId: 'pictureabc', description: 'This is pic abc', url:'./assets/audience.jpg'},
+    { key: 2, eventPictureId: 'picturedef', description: 'This is pic def', url:'./assets/howyoudoin.webp'},
+    { key: 3, eventPictureId: 'pictureghi', description: 'This is pic ghi', url:'./assets/ilicku.jpg'},
+    { key: 4, eventPictureId: 'picturejkl', description: 'This is pic jkl', url:'./assets/puppypuddle.jpg'},
+    { key: 5, eventPictureId: 'picturemno', description: 'This is pic mno', url:'./assets/twobroschillin.jpg'},
   ],
 }
 

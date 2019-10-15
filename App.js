@@ -17,7 +17,7 @@ class App extends React.Component {
     return (
       <Provider store={store}>
         <AppContainer />
-        <Gallery />
+        <Gallery test="test" />
         <SignUp />
       </Provider>
     );
