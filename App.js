@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 import store from './src/store/store';
 
 import SignUp from './src/views/Landing/components/SignUp.component';
+import Gallery from './src/views/Gallery/Gallery.page';
 
 // import { AppLoading } from 'expo';
 // import { Container, Text } from 'native-base';
@@ -16,6 +17,7 @@ class App extends React.Component {
     return (
       <Provider store={store}>
         <AppContainer />
+        <Gallery />
         <SignUp />
       </Provider>
     );
