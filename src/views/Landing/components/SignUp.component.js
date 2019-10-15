@@ -43,14 +43,14 @@ class SignUp extends React.Component {
           onChangeText={ (text) => this.handleChange('password', text) }
           onSubmitEditing={this.handleSubmit}
         />
-        <Button title={'State'} onPress={ () => console.log(this.props.user) } />
+        <Button title={'User State'} onPress={ () => console.log('username:', this.props.user, 'event:', this.props.event) } />
       </View>
     );
   }
 }
 
 const mapStateToProps = (state) => {
-  return { user: state };
+  return { user: state.userReducer.username, event: state.eventReducer };
 };
 
 const mapDispatchToProps = (dispatch) => {
