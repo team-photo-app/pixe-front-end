@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { View, Image, Text, Button, FlatList } from 'react-native';
+import Picture from './components/Picture.component';
 
 // Note - Rememeber to remove Assets folder with puppies :(
 class Gallery extends React.Component {
@@ -12,16 +13,9 @@ class Gallery extends React.Component {
         <Text>Keller Wedding</Text>
         <FlatList data={this.props.pictures} renderItem={itemData => (
           <View key={itemData.item.key}>
-            <Text>Description: {itemData.item.description}</Text>
-            <Text>ID: {itemData.item.description}</Text>
-            <Text>URL: {itemData.item.url}</Text>
+            <Picture key={itemData.item.key} description={itemData.item.description} url={itemData.item.url}/>
           </View>
         )}/>
-        {/* {
-          this.props.pictures.map((image, idx) => {
-            return <Image key={idx} source={url}/>
-          })
-        } */}
       </View>
 
     )

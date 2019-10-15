@@ -9,11 +9,11 @@ const initState = {
     {username: 'fred90906'},
   ],
   eventPicturesIds: [
-    { key: 1, eventPictureId: 'pictureabc', description: 'This is pic abc', url:'./assets/audience.jpg'},
-    { key: 2, eventPictureId: 'picturedef', description: 'This is pic def', url:'./assets/howyoudoin.webp'},
-    { key: 3, eventPictureId: 'pictureghi', description: 'This is pic ghi', url:'./assets/ilicku.jpg'},
-    { key: 4, eventPictureId: 'picturejkl', description: 'This is pic jkl', url:'./assets/puppypuddle.jpg'},
-    { key: 5, eventPictureId: 'picturemno', description: 'This is pic mno', url:'./assets/twobroschillin.jpg'},
+    { key: 1, eventPictureId: 'pictureabc', description: 'This is pic abc', url:'https://en.wikipedia.org/wiki/Akita_(dog)#/media/File:Akita_female.png'},
+    { key: 2, eventPictureId: 'picturedef', description: 'This is pic def', url:require('../../pix/howyoudoin.webp')},
+    { key: 3, eventPictureId: 'pictureghi', description: 'This is pic ghi', url:require('../../pix/ilicku.jpg')},
+    { key: 4, eventPictureId: 'picturejkl', description: 'This is pic jkl', url:require('../../pix/puppypuddle.jpg')},
+    { key: 5, eventPictureId: 'picturemno', description: 'This is pic mno', url:require('../../pix/twobroschillin.jpg')},
   ],
 }
 
