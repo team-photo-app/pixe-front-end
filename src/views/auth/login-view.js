@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Text, TextInput, Button, Alert } from 'react-native'
-import { NavigationActions } from 'react-navigation'
+import { StackActions, NavigationActions } from 'react-navigation'
 import * as firebase from 'firebase'
 
 export default class LoginView extends React.Component {
@@ -18,7 +18,7 @@ export default class LoginView extends React.Component {
   }
 
   onCreateAccountPress = () => {
-    const navActions = NavigationActions.reset({
+    var navActions = StackActions.reset({
       index: 0,
       action: [NavigationActions.navigate({ routeName: 'SignUp' })]
     })
@@ -27,7 +27,7 @@ export default class LoginView extends React.Component {
   }
 
   onForgotPasswordPress = () => {
-    const navActions = navActions.reset({
+    var navActions = StackActions.reset({
       index: 0,
       action: [NavigationActions.navigate({ routeName: 'ForgotPassword' })]
     })
