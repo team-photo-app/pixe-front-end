@@ -34,21 +34,21 @@ class CameraPage extends React.PureComponent {
 
     let ref = firebase.storage().ref('pixe').child(uuidv4());
 
-    // Create file metadata to update ref above
-    const newMetadata = {
-      contentType: 'image/jpeg',
-      name: '',
-      timeCreated: '',
-      customMetaData: {
-        'picDescription': '',
-        'userId': '',
-        'eventId': ''
-      }
-    }
+  //   // Create file metadata to update ref above
+  //   const newMetadata = {
+  //     contentType: 'image/jpeg',
+  //     name: '',
+  //     timeCreated: '',
+  //     customMetaData: {
+  //       'picDescription': '',
+  //       'userId': '',
+  //       'eventId': ''
+  //     }
+  //   }
 
-    ref.updateMetadata(newMetadata).then((metadata) => {
-  // TODO: Updated metadata for image is returned in the Promise
-  // reference: https://firebase.google.com/docs/storage/web/file-metadata
+  //   ref.updateMetadata(newMetadata).then((metadata) => {
+  // // TODO: Updated metadata for image is returned in the Promise
+  // // reference: https://firebase.google.com/docs/storage/web/file-metadata
 
     }).catch( error => {
       console.log('Error');
