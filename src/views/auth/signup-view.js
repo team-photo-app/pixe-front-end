@@ -2,7 +2,6 @@ import React from 'react'
 import { View, Text, TextInput, Button, Alert } from 'react-native'
 import { StackActions, NavigationActions } from 'react-navigation'
 import * as firebase from 'firebase'
-import LoginView from './login-view'
 
 export default class SignUpView extends React.Component {
   constructor(props) {
