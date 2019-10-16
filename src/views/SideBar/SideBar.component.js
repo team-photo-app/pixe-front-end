@@ -20,11 +20,6 @@ const routeData = [
     icon: "albums"
   },
   {
-    name: "Camera",
-    route: "CameraPage",
-    icon: "camera",
-  },
-  {
     name: "Scanner",
     route: "ScannerPage",
     icon: "arrow-down"
