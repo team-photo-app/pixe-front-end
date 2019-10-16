@@ -5,7 +5,7 @@ import firebase from '../../FB/firebase';
 
 // Note - Rememeber to remove Assets folder with puppies :(
 class Gallery extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       picture: '',
@@ -13,7 +13,7 @@ class Gallery extends React.Component {
     }
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.getImage(`19e210db-98ec-4e1a-8298-316cbfe37b9d`);
   }
 
@@ -29,10 +29,10 @@ class Gallery extends React.Component {
       });
   }
 
-  render () {
+  render() {
     return (
       <View>
-        <Image style={{height:50, width:50}} source={{uri:this.state.picture}} />
+        <Image style={{ height: 120, width: 120 }} source={{ uri: this.state.picture }} />
       </View>
     )
 
