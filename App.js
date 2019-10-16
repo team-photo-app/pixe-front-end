@@ -3,9 +3,6 @@ import { Provider } from 'react-redux'
 import store from './src/store/store'
 import * as firebase from 'firebase'
 import superhotbase from './src/FB/firebase'
-import LoginView from './src/views/auth/login-view'
-
-import Gallery from './src/views/Gallery/Gallery.page'
 
 // TODO: ERIC is working on this code
 // import { AppLoading } from 'expo';
@@ -15,7 +12,7 @@ import Gallery from './src/views/Gallery/Gallery.page'
 import AppContainer from './src/NavRouter'
 
 class App extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       // isAuthenticationReady: false,
@@ -31,10 +28,10 @@ class App extends React.Component {
     this.setState({ isAuthenticated: !!user })
   }
 
-  render () {
+  render() {
     return (
       <Provider store={store}>
-        {(this.state.isAuthenticated) ? <AppContainer /> : <LoginView />}
+        <AppContainer />
         {/* <Gallery /> */}
         {/* <SignUp /> */}
       </Provider>

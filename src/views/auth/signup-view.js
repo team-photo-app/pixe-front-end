@@ -1,11 +1,11 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { View, Text, TextInput, Button, Alert } from 'react-native'
 import { StackActions, NavigationActions } from 'react-navigation'
 import * as firebase from 'firebase'
+import LoginView from './login-view'
 
 export default class SignUpView extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       email: '',
@@ -20,7 +20,7 @@ export default class SignUpView extends React.Component {
     }
 
     firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
-      .then(() => {}, (error) => { Alert.alert(error.message) })
+      .then(() => { }, (error) => { Alert.alert(error.message) })
   }
 
   onBackToLoginPress = () => {
@@ -29,15 +29,15 @@ export default class SignUpView extends React.Component {
       action: [NavigationActions.navigate({ routeName: 'LogIn' })]
     })
 
-    this.props.navigation.dispatch(navActions)
+    this.props.navigation.navigate('LoginView')
   }
 
-  render () {
+  render() {
     return (
-      <View>
+      <View style={{ paddingTop: 50, alignItems: 'center' }}>
 
         <Text>
-        Sign Up Here!
+          Sign Up Here!
         </Text>
 
         <TextInput
@@ -50,7 +50,7 @@ export default class SignUpView extends React.Component {
         />
 
         <Text>
-        Password
+          Password
         </Text>
 
         <TextInput
@@ -86,8 +86,5 @@ export default class SignUpView extends React.Component {
   }
 }
 
-SignUpView.propTypes = {
-  navigation: PropTypes.shape({
-    dispatch: PropTypes.func
-  })
-}
+
+
