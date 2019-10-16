@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { View, Image, Text, FlatList } from 'react-native';
 import firebase from '../../FB/firebase';
+import {Icon} from "native-base";
 
 // Note - Rememeber to remove Assets folder with puppies :(
 class Gallery extends React.Component {
@@ -27,13 +28,17 @@ class Gallery extends React.Component {
       .catch((error) => {
         console.log('ERROR:', error);
       });
-  }
+  };
 
   render () {
+    // const { navigate } = this.props.navigation;
     return (
+        <>
+
       <View>
         <Image style={{height:50, width:50}} source={{uri:this.state.picture}} />
       </View>
+          </>
     )
 
   }
