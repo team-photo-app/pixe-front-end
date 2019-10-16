@@ -1,22 +1,28 @@
 import React from 'react'
-import { Icon } from 'native-base';
-import View from 'react-native-web/dist/exports/View';
+import {Icon, View} from 'native-base';
 import * as ImagePicker from 'expo-image-picker';
 import firebase from '../../FB/firebase';
 import { Button, Alert } from 'react-native';
+import { withNavigation } from 'react-navigation';
 const uuidv4 = require('uuid/v4');
 
-class CameraPage extends React.PureComponent {
+class CameraPage extends React.Component {
   static navigationOptions = {
-    title: 'This is the Camera Page',
+    title: 'Camera',
   };
+
+  componentDidMount() {
+    const { navigation } = this.props;
+    this.focusListener = navigation.addListener('didFocus', () => {
+     return this.onChooseImagePress
+    })
+  }
 
   onChooseImagePress = async () => {
     let result = await ImagePicker.launchCameraAsync({
-      // allowsEditing: true,
-      // aspect: [4, 3],
+      allowsEditing: true,
+      aspect: [4, 3],
     });
-    // let result = await ImagePicker.launchImageLibraryAsync();
     if (!result.cancelled) {
       this.uploadImage(result.uri).then(() => {
         Alert.alert("Success!");
@@ -31,7 +37,6 @@ class CameraPage extends React.PureComponent {
 
     const response = await fetch(uri);
     const blob = await response.blob();
-
     let ref = firebase.storage().ref('pixe').child(uuidv4());
 
     // Create file metadata to update ref above
@@ -66,8 +71,8 @@ class CameraPage extends React.PureComponent {
           onPress={this.onChooseImagePress}>
         </Icon>
       <Button
-          title="Test the scanner here"
-          onPress={() => navigate('Scanner', { name: 'Scanner'})}>
+          title="Scanny-Boy"
+          onPress={() => navigate('BarCodeScanner', { name: 'BarCodeScanner'})}>
       </Button>
 
     </>

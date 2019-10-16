@@ -17,8 +17,8 @@ class App extends React.Component {
     return (
       <Provider store={store}>
         <AppContainer />
-        <Gallery />
-        <SignUp />
+        {/*<Gallery />*/}
+        {/*<SignUp />*/}
       </Provider>
     );
   }

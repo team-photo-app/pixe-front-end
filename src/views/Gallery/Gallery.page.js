@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, FlatList } from 'react-native';
 import firebase from '../../FB/firebase';
+import {Icon} from "native-base";
 
 import Picture from './components/Picture.component';
 
@@ -38,10 +39,16 @@ class Gallery extends React.Component {
         });
         this.setState({ ...this.state, pictures: objectifiedArray, ready: true });
       })
-  }
+      .catch((error) => {
+        console.log('ERROR:', error);
+      });
+  };
 
   render () {
+    // const { navigate } = this.props.navigation;
     return (
+        <>
+
       <View>
         { // if this.state.ready is true, which will only turn true when pictures are fetched, then display list
           this.state.ready
@@ -58,6 +65,7 @@ class Gallery extends React.Component {
             : null
         }
       </View>
+          </>
     )
   }
 }
