@@ -2,7 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import store from './src/store/store';
 
-import SignUp from './src/views/Landing/components/SignUp.component';
+import LoginView from './src/views/auth/login-view';
 import Gallery from './src/views/Gallery/Gallery.page';
 
 // import { AppLoading } from 'expo';
@@ -16,6 +16,7 @@ class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
+        <LoginView />
         <AppContainer />
         {/*<Gallery />*/}
         {/*<SignUp />*/}
