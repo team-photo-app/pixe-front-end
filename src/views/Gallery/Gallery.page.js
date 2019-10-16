@@ -1,7 +1,5 @@
-
-
-import { Container } from 'native-base';
 import React from 'react';
+import { Container } from 'native-base';
 import { View, FlatList } from 'react-native';
 import firebase from '../../FB/firebase';
 import {Icon} from "native-base";
@@ -52,7 +50,6 @@ class Gallery extends React.Component {
     // const { navigate } = this.props.navigation;
     return (
     <Container>
-
       <View>
         { // if this.state.ready is true, which will only turn true when pictures are fetched, then display list
           this.state.ready
