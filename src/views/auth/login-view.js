@@ -13,12 +13,12 @@ export default class LoginView extends React.Component {
     }
   }
 
-  onLoginPress = () => {
+  handleOnLoginPress = () => {
     firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
       .then(() => {}, (err) => { Alert.alert(err.message) })
   }
 
-  onCreateAccountPress = () => {
+  handleOnCreateAccountPress = () => {
     var navActions = StackActions.reset({
       index: 0,
       action: [NavigationActions.navigate({ routeName: 'SignUp' })]
@@ -27,7 +27,7 @@ export default class LoginView extends React.Component {
     this.props.navigation.dispatch(navActions)
   }
 
-  onForgotPasswordPress = () => {
+  handleOnForgotPasswordPress = () => {
     var navActions = StackActions.reset({
       index: 0,
       action: [NavigationActions.navigate({ routeName: 'ForgotPassword' })]
@@ -37,6 +37,7 @@ export default class LoginView extends React.Component {
   }
 
   render () {
+    // const { navigation } = this.props.navigation
     return (
       <View>
 
@@ -68,17 +69,18 @@ export default class LoginView extends React.Component {
 
         <Button
           title='Log In'
-          onPress={this.onLoginPress}
+          onPress={this.handleOnLoginPress}
         />
 
         <Button
           title='Create New Account'
-          onPress={this.onCreateAccountPress}
+          onPress={this.handleOnCreateAccountPress}
         />
 
         <Button
           title='Forgot Password?'
-          onPress={this.onForgotPasswordPress}
+          onPress={this.handleOnForgotPasswordPress}
+          // onPress = {(onLoginPress) => navigate('LoginView', {name: 'LoginView'})}
         />
 
       </View>

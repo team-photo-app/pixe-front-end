@@ -15,8 +15,8 @@ import SignUpView from './views/auth/signup-view.js'
 
 const AppNavigator = createDrawerNavigator(
   {
-    Login: { screen: LoginView },
-    SignUp: { screen: SignUpView },
+    LoginView: { screen: LoginView },
+    SignUpView: { screen: SignUpView },
     CameraPage: { screen: CameraPage },
     ScannerPage: { screen: ScannerPage },
     BarCodeScanner: { screen: BarCodeScanner },
