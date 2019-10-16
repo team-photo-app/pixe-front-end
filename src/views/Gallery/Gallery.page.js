@@ -1,29 +1,43 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { View, Image, Text, FlatList } from 'react-native';
+import { View, FlatList } from 'react-native';
 import firebase from '../../FB/firebase';
 import {Icon} from "native-base";
 
-// Note - Rememeber to remove Assets folder with puppies :(
+import Picture from './components/Picture.component';
+
 class Gallery extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      picture: '',
-      error: ''
+      pictures: [],
+      error: '',
+      ready: false
     }
   }
 
   componentDidMount(){
-    this.getImage(`19e210db-98ec-4e1a-8298-316cbfe37b9d`);
+    this.getList();
   }
 
-  getImage = (image) => {
-    const ref = firebase.storage().ref('pixe').child(`${image}`);
-    ref.getDownloadURL()
-      .then((url) => {
-        console.log('URL:', url);
-        this.setState({ picture: url })
+  getImage = (imageName) => {
+    return firebase.storage().ref('pixe').child(`${imageName}`).getDownloadURL();
+  }
+
+  getList = () => {
+    return firebase.storage().ref('pixe').listAll()
+      .then(list => {
+        let picName = '';
+        const downloadURLPromiseArray = list.items.map((item) => {
+          picName = item.location.path_.split('/')[1];
+          return this.getImage(picName);
+        });
+        return Promise.all(downloadURLPromiseArray);
+      })
+      .then((urlArray) => {
+        const objectifiedArray = urlArray.map((item) => {
+          return { key: item, url: item };
+        });
+        this.setState({ ...this.state, pictures: objectifiedArray, ready: true });
       })
       .catch((error) => {
         console.log('ERROR:', error);
@@ -36,33 +50,24 @@ class Gallery extends React.Component {
         <>
 
       <View>
-        <Image style={{height:50, width:50}} source={{uri:this.state.picture}} />
+        { // if this.state.ready is true, which will only turn true when pictures are fetched, then display list
+          this.state.ready
+            ? <FlatList data={this.state.pictures}
+                renderItem={(itemData) => {
+                  return (
+                    <View>
+                      <Picture url={itemData.item.url} />
+                    </View>
+                  );
+                }}
+                keyExtractor={((item) => (item.key))}
+              />
+            : null
+        }
       </View>
           </>
     )
-
   }
 }
 
 export default Gallery;
-
-// const mapStateToProps = (state) => {
-//   return {
-//     pictures: state.eventReducer.eventPicturesIds,
-//   }
-// }
-
-// export default connect(mapStateToProps, null)(Gallery) ;
-
-      // <View>
-      //   <Text>Keller Wedding</Text>
-      //   <FlatList data={this.props.pictures} renderItem={itemData => (
-      //     <View>
-      //       <Picture description={itemData.item.description} url={itemData.item.url}/>
-      //       <Text>{itemData.item.url}</Text>
-      //     </View>
-      //   )}
-      //   keyExtractor={((item,idx)=>{
-      //     return idx.toString()})}
-      //   />
-      // </View>
