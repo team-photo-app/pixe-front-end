@@ -1,7 +1,11 @@
+
+
+import { Container } from 'native-base';
 import React from 'react';
 import { View, FlatList } from 'react-native';
 import firebase from '../../FB/firebase';
 import {Icon} from "native-base";
+import Footer from '../Footer/Footer';
 
 import Picture from './components/Picture.component';
 
@@ -47,7 +51,7 @@ class Gallery extends React.Component {
   render () {
     // const { navigate } = this.props.navigation;
     return (
-        <>
+    <Container>
 
       <View>
         { // if this.state.ready is true, which will only turn true when pictures are fetched, then display list
@@ -65,7 +69,8 @@ class Gallery extends React.Component {
             : null
         }
       </View>
-          </>
+      <Footer />
+    </Container>
     )
   }
 }
