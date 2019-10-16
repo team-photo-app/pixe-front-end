@@ -1,5 +1,5 @@
 import React from 'react'
-import { createDrawerNavigator, createStackNavigator, createAppContainer } from 'react-navigation'
+import { createDrawerNavigator, createStackNavigator, createAppContainer, withNavigation } from 'react-navigation'
 // import { Root } from 'native-base'
 import CameraPage from './views/Camera/Camera.page.js'
 import BarCodeScanner from './views/Scanner/components/scanner.component'
@@ -21,19 +21,13 @@ const AppNavigator = createDrawerNavigator(
     ScannerPage: { screen: ScannerPage },
     BarCodeScanner: { screen: BarCodeScanner },
     Gallery: { screen: Gallery }
-
-    // EventCreate: {screen: EventCreate},
-    // EventJoin: {screen: EventJoin},
-    // Landing: {screen: Landing},
-    // EventList: {screen: EventList}
-
   }, {
-    drawerWidth: 300,
-    contentOptions: {
-    },
-    contentComponent: props => <SideBar {...props} />
+  drawerWidth: 300,
+  contentOptions: {
+  },
+  contentComponent: props => <SideBar {...props} />
 
-  })
+})
 
 const AppContainer = createAppContainer(AppNavigator)
 
