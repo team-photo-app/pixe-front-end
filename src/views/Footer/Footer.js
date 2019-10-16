@@ -17,6 +17,7 @@ import * as ImagePicker from 'expo-image-picker';
 import firebase from '../../FB/firebase';
 import { Alert } from 'react-native';
 const uuidv4 = require('uuid/v4');
+import { withNavigation } from 'react-navigation';
 
 class CameraFooter extends Component {
   constructor(props) {
@@ -78,4 +79,4 @@ class CameraFooter extends Component {
   }
 }
 
-export default CameraFooter;
+export default withNavigation(CameraFooter);

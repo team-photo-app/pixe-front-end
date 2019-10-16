@@ -10,8 +10,6 @@ import {
     // Right,
     // Badge
 } from 'native-base';
-import {NavigationActions} from 'react-navigation';
-import {ScrollView, View} from 'react-native';
 
 const routeData = [
   {
