@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { View, Text, TextInput, Button, Alert } from 'react-native'
 import { StackActions, NavigationActions } from 'react-navigation'
 import * as firebase from 'firebase'
@@ -83,4 +84,10 @@ export default class SignUpView extends React.Component {
       </View>
     )
   }
+}
+
+SignUpView.propTypes = {
+  navigation: PropTypes.shape({
+    dispatch: PropTypes.func
+  })
 }

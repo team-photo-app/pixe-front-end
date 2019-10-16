@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, Text, TextInput, Button, Alert } from 'react-native'
+import PropTypes from 'prop-types'
 import { StackActions, NavigationActions } from 'react-navigation'
 import * as firebase from 'firebase'
 
@@ -83,4 +84,10 @@ export default class LoginView extends React.Component {
       </View>
     )
   }
+}
+
+LoginView.propTypes = {
+  navigation: PropTypes.shape({
+    dispatch: PropTypes.func
+  })
 }
