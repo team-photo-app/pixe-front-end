@@ -16,8 +16,7 @@ export default class LoginView extends React.Component {
     firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
       .then(() => {
         firebase.auth().onAuthStateChanged(user => {
-          // console.log(user)
-          this.props.navigation.navigate('EventList')
+          this.props.navigation.navigate('MyEvents')
         })
       })
       .catch(() => {
@@ -32,10 +31,10 @@ export default class LoginView extends React.Component {
   handleOnForgotPasswordPress = () => {
     var navActions = StackActions.reset({
       index: 0,
-      action: [NavigationActions.navigate({ routeName: 'ForgotPassword' })]
+      action: [NavigationActions.navigate({ routeName: 'ForgotPasswordView' })]
     })
 
-    this.props.navigation.dispatch(navActions)
+    this.props.navigation.navigate('ForgotPasswordView')
   }
 
   render() {

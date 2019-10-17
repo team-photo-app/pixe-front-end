@@ -3,6 +3,7 @@ import { createDrawerNavigator, createStackNavigator, createAppContainer, withNa
 // import { Root } from 'native-base'
 import LoginView from './views/auth/login-view'
 import SignUpView from './views/auth/signup-view.js'
+import ForgotPasswordView from './views/auth/forgot-password'
 import CameraPage from './views/Camera/Camera.page.js'
 import QR from './views/JoinEvent/components/QR.component'
 import Gallery from './views/Gallery/Gallery.page'
@@ -16,6 +17,11 @@ import MyEvents from './views/MyEvents/MyEvents.page'
 
 const AppNavigator = createDrawerNavigator(
   {
+<<<<<<< HEAD
+    LoginView: { screen: LoginView },
+    SignUpView: { screen: SignUpView },
+    ForgotPasswordView: { screen: ForgotPasswordView },
+=======
     LoginView: { screen: LoginView,
       navigationOptions: ({navigation}) => ({
         drawerLockMode: 'locked-closed'
@@ -25,6 +31,7 @@ const AppNavigator = createDrawerNavigator(
       navigationOptions: ({navigation}) => ({
         drawerLockMode: 'locked-closed'
       })},
+>>>>>>> 275ce7b18000e89dbde4ac00afc51073fca32ac3
     CameraPage: { screen: CameraPage },
     JoinEvent: { screen: JoinEvent },
     QR: { screen: QR },
