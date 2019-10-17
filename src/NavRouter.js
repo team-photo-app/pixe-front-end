@@ -41,7 +41,8 @@ AppNavigator.router.getStateForAction = (action, state) => {
     console.log('SWIPE!')
   }
   return defaultStateForAppNav(action, state)
-};
+}
+
 const AppContainer = createAppContainer(AppNavigator)
 
 export default AppContainer

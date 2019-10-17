@@ -1,10 +1,10 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from 'redux'
 import userReducer from './userReducer'
-import galleryReducer from './galleryReducer';
+import galleryReducer from './galleryReducer'
 
 const rootReducer = combineReducers({
   userReducer,
-  galleryReducer,
+  galleryReducer
 })
 
-export default rootReducer;
+export default rootReducer
