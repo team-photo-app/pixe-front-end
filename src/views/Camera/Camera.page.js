@@ -1,5 +1,9 @@
 import React from 'react'
+<<<<<<< HEAD
 import { Icon, View, Footer, Container } from 'native-base'
+=======
+import { Icon, Footer, Container } from 'native-base'
+>>>>>>> 0bcecfc3b904675367ad684631aa56feec1b9dde
 import * as ImagePicker from 'expo-image-picker'
 import firebase from '../../FB/firebase'
 import { Alert } from 'react-native'
@@ -28,28 +32,27 @@ class CameraPage extends React.Component {
 
   uploadImage = async (uri) => {
     const response = await fetch(uri)
+    // blob is data object representation of a file
     const blob = await response.blob()
-    const ref = firebase.storage().ref('pixe').child(uuidv4())
-
+    const id = uuidv4()
+    const ref = firebase.storage().ref('pixe').child(id)
+    // currentUser sends back signedin user
+    const user = firebase.auth().currentUser
     // Create file metadata to update ref above
     const newMetadata = {
       contentType: 'image/jpeg',
       name: '',
       timeCreated: '',
       customMetaData: {
-        userId: ''
+        userId: `${user.uid}`
       }
     }
+    const uploadTasker = ref.put(this.child, newMetadata)
+    console.log(uploadTasker)
+    console.log(this.child)
 
-    // ref.updateMetadata(newMetadata).then((metadata) => {
-    // TODO: Updated metadata for image is returned in the Promise
-    // reference: https://firebase.google.com/docs/storage/web/file-metadata
-
-    // }).catch( error => {
-    //   console.log('Error');
-    // })
-    return ref.put(blob)
-  };
+    return ref.put(blob, uploadTasker)
+  }
 
   render () {
     return (
@@ -58,7 +61,7 @@ class CameraPage extends React.Component {
           <Icon
             name='camera'
             title='Click to Access Camera'
-            onPress={this.onChooseImagePress}
+            handleOnPress={this.onChooseImagePress}
           />
         </Footer>
       </Container>

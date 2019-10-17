@@ -1,54 +1,43 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Text, View, FlatList, Button } from 'react-native'
+import { Text, View, FlatList } from 'react-native'
 
 class EventList extends React.Component {
-  // constructor(props){
-  //   super(props);
-  //   this.state = {
-  //     eventList: [],
-  //     isReady: false
-  //   }
-  // }
+  constructor (props) {
+    super(props)
+    this.state = {
+      eventList: {}
+    }
+  }
 
   // on create event, also upload to storage splash image
   // fetch event splash image
 
   componentDidMount () {
-    const eventList = Object.entries(this.props.events)
-    eventList.forEach(event => {
-      console.log(event[0])
-      console.log(event[1].eventName)
-      console.log(event[1].eventDescription)
+    const eventList = this.props.events || {}
+    this.setState((prevState) => {
+      return { ...prevState, eventList }
     })
-    // this.setState((prevState) => {
-    //   return { ...prevState, eventList, isReady: true }
-    // })
   }
 
   render () {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignContent: 'center' }}>
-        <Button title="State" onPress={console.log(this.props.events)} />
         <Text>TODO: Event List</Text>
-        {/* {
-          this.state.isReady
-            ? <FlatList
-                data={Object.entries(this.props.events)}
-                renderItem={(event) => {
-                  return (
-                    <View>
-                      <Text>ID: {event[0]}</Text>
-                      <Text>Event: {event[1].eventName}</Text>
-                      <Text>Description: {event[1].eventDescription}</Text>
-                    </View>
-                  )
-                }}
-                numColumns={1}
-                keyExtractor={(item) => item[0]}
-              />
-            : null
-        } */}
+        <FlatList
+          data={Object.entries(this.state.eventList)}
+          renderItem={(itemData) => {
+            return (
+              <View>
+                <Text>ID: {itemData.item[0]}</Text>
+                <Text>Event: {itemData.item[1].eventName}</Text>
+                <Text>Description: {itemData.item[1].eventDescription}</Text>
+              </View>
+            )
+          }}
+          numColumns={1}
+          keyExtractor={(item) => item[0]}
+        />
       </View>
     )
   }

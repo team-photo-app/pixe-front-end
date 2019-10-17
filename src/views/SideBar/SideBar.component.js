@@ -1,5 +1,4 @@
 import React from 'react'
-import styles from './styles';
 
 import {
   Content,
@@ -26,7 +25,7 @@ const routeData = [
   },
   {
     name: 'My Events',
-    route: 'EventList',
+    route: 'MyEvents',
     icon: 'pizza'
   },
   {
@@ -46,8 +45,6 @@ const routeData = [
   }
 ]
 
-
-
 class SideBar extends React.Component {
   constructor (props) {
     super(props)
@@ -63,7 +60,7 @@ class SideBar extends React.Component {
             <Icon
               onPress={() => this.props.navigation.closeDrawer()}
               name='arrow-back'
-              />
+            />
           </Right>
           <List
             keyExtractor={(item, idx) => idx.toString()}

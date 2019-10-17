@@ -19,7 +19,9 @@ export default class SignUpView extends React.Component {
     }
 
     firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
-      .then(() => { }, (error) => { Alert.alert(error.message) })
+      .then(() => { Alert.alert('You signed up!') })
+      .then(() => { this.props.navigation.navigate('LoginView') })
+      .catch((error) => { Alert.alert(error.message) })
   }
 
   onBackToLoginPress = () => {

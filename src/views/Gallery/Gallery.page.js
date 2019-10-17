@@ -1,10 +1,18 @@
 import React from 'react'
+<<<<<<< HEAD
 import { Container, Content, Header, Footer, Icon, Button, Left, Right, Text } from 'native-base'
+=======
+import { Container, Header, Footer, Icon, Button, Left, Right, Text } from 'native-base'
+>>>>>>> 0bcecfc3b904675367ad684631aa56feec1b9dde
 import { View, FlatList } from 'react-native'
 import firebase from '../../FB/firebase'
 import Picture from './components/Picture.component'
 import CameraFooter from '../Footer/Footer'
 import styles from './styles/styles'
+<<<<<<< HEAD
+=======
+import styleTemplate from '../templates/styleTemplate'
+>>>>>>> 0bcecfc3b904675367ad684631aa56feec1b9dde
 
 class Gallery extends React.Component {
   constructor (props) {
@@ -67,6 +75,7 @@ class Gallery extends React.Component {
   render () {
     // const { navigate } = this.props.navigation;
     return (
+<<<<<<< HEAD
       <Container>
         <Header style={styles.header}>
           <Left>
@@ -75,6 +84,13 @@ class Gallery extends React.Component {
                 style={{ color: 'black' }}
                 name='menu'
               />
+=======
+      <Container style={styleTemplate.container}>
+        <Header style={styleTemplate.header}>
+          <Left>
+            <Button transparent onPress={() => this.props.navigation.openDrawer()}>
+              <Icon style={styleTemplate.menu} name='menu' />
+>>>>>>> 0bcecfc3b904675367ad684631aa56feec1b9dde
             </Button>
           </Left>
           <Right>
@@ -90,18 +106,30 @@ class Gallery extends React.Component {
               renderItem={(itemData) => {
                 return (
                   <View style={styles.pictureWrapper}>
+<<<<<<< HEAD
                     <Picture
                       url={itemData.item.url}
                     />
+=======
+                    <Picture url={itemData.item.url} />
+>>>>>>> 0bcecfc3b904675367ad684631aa56feec1b9dde
                   </View>
                 )
               }}
               numColumns={3}
               keyExtractor={(item) => item.key}
+<<<<<<< HEAD
               />
             : null
         }
         <Footer style={styles.footer}>
+=======
+            // eslint-disable-next-line react/jsx-closing-bracket-location
+            />
+            : null
+        }
+        <Footer style={styleTemplate.footer}>
+>>>>>>> 0bcecfc3b904675367ad684631aa56feec1b9dde
           <CameraFooter />
         </Footer>
       </Container>

@@ -17,5 +17,11 @@ export default {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center'
+  },
+  pixeLogo: {
+    color: "black",
+  },
+  menu: {
+    color: "black"
   }
-}
+};

@@ -4,6 +4,21 @@ import { View, TextInput, Button, Alert } from 'react-native'
 import uuid from 'uuid/v4'
 import QRCodeComp from './components/QRCodeComp.component'
 import { EVENTS_LIST_ADD } from '../../store/actions/userActions'
+<<<<<<< HEAD
+=======
+import {
+  Container,
+  Content,
+  Icon,
+  Header,
+  Footer,
+  Left,
+  Right, Text
+} from 'native-base'
+import styles from './styles/styles'
+import styleTemplate from '../templates/styleTemplate'
+// import HiddenView from './components/hiddenView'
+>>>>>>> 0bcecfc3b904675367ad684631aa56feec1b9dde
 
 class EventCreate extends React.Component {
   constructor (props) {
@@ -12,7 +27,12 @@ class EventCreate extends React.Component {
       id: '',
       eventName: '',
       eventDescription: '',
+<<<<<<< HEAD
       isFormFilled: false
+=======
+      isFormFilled: false,
+      isHidden: false
+>>>>>>> 0bcecfc3b904675367ad684631aa56feec1b9dde
     }
   }
 
@@ -61,6 +81,7 @@ class EventCreate extends React.Component {
 
   handleQR = () => {
     return (
+<<<<<<< HEAD
       <View style={{ margin: 20 }}>
         <QRCodeComp
           eventID={this.state.id}
@@ -69,11 +90,24 @@ class EventCreate extends React.Component {
         />
         <Button title='OK' onPress={() => this.setState({ id: '', eventName: '', eventDescription: '', isFormFilled: false })} />
       </View>
+=======
+      <Content>
+        <View style={{ margin: 20, borderWidth: 1, borderColor: 'black' }}>
+          <QRCodeComp
+            eventID={this.state.id}
+            eventName={this.state.eventName}
+            eventDescription={this.state.eventDescription}
+          />
+          <Button title='OK' onPress={() => this.setState({ id: '', eventName: '', eventDescription: '', isFormFilled: false })} />
+        </View>
+      </Content>
+>>>>>>> 0bcecfc3b904675367ad684631aa56feec1b9dde
     )
   }
 
   render () {
     return (
+<<<<<<< HEAD
       <View style={{ flex: 1, justifyContent: 'center', alignContent: 'center' }}>
         <TextInput
           placeholder='Enter event name'
@@ -93,6 +127,46 @@ class EventCreate extends React.Component {
         }
         <Button title='Event State' onPress={() => { console.log(this.props.state.events) }} />
       </View>
+=======
+      <Container>
+        <Header style={styleTemplate.header}>
+          <Left>
+            <Icon
+              style={{ color: '#0D0D0D' }}
+              name='menu'
+              onPress={() => this.props.navigation.openDrawer()}
+            />
+          </Left>
+          <Right>
+            <Text>PixE</Text>
+          </Right>
+        </Header>
+        <Content contentContainerStyle={{ flex: 1, justifyContent: 'center', alignContent: 'center' }}>
+          {this.state.isFormFilled
+            ? this.handleQR()
+            : (
+              <View>
+                <TextInput
+                  placeholder='Enter event name'
+                  value={this.state.eventName}
+                  onChangeText={(text) => this.handleChange('eventName', text)}
+                />
+                <TextInput
+                  placeholder='Enter event description'
+                  value={this.state.eventDescription}
+                  onChangeText={(text) => this.handleChange('eventDescription', text)}
+                />
+                <Button
+                  style={styles.submit}
+                  title='Submit' onPress={this.handleSubmit}
+                />
+              </View>
+            )}
+          <Button title='Event State' onPress={() => { console.log(this.props.state.events) }} />
+        </Content>
+        <Footer style={styleTemplate.footer} />
+      </Container>
+>>>>>>> 0bcecfc3b904675367ad684631aa56feec1b9dde
     )
   }
 }
