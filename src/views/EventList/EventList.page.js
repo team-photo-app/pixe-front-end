@@ -3,29 +3,35 @@ import { connect } from 'react-redux';
 import { Text, View, FlatList, Button } from 'react-native';
 
 class EventList extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      eventList: [],
-      isReady: false
-    }
-  }
+  // constructor(props){
+  //   super(props);
+  //   this.state = {
+  //     eventList: [],
+  //     isReady: false
+  //   }
+  // }
 
   // on create event, also upload to storage splash image
   // fetch event splash image
 
   componentDidMount(){
     const eventList = Object.entries(this.props.events);
-    this.setState((prevState) => {
-      return { ...prevState, eventList, isReady: true }
+    eventList.forEach(event => {
+      console.log(event[0]);
+      console.log(event[1].eventName);
+      console.log(event[1].eventDescription);
     })
+    // this.setState((prevState) => {
+    //   return { ...prevState, eventList, isReady: true }
+    // })
   }
 
   render () {
     return (
       <View style={{flex:1, justifyContent:'center', alignContent:'center'}}>
+        <Button title={'State'} onPress={console.log(this.props.events)}/>
         <Text>TODO: Event List</Text>
-        {
+        {/* {
           this.state.isReady
             ? <FlatList 
                 data={Object.entries(this.props.events)}
@@ -42,7 +48,7 @@ class EventList extends React.Component {
                 keyExtractor={(item) => item[0]}
               />
             : null
-        }
+        } */}
       </View>
     );
   }
