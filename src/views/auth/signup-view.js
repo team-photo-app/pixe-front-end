@@ -4,7 +4,7 @@ import { View, Text, TextInput, Button, Alert } from 'react-native'
 import firebase from '../../FB/firebase'
 
 export default class SignUpView extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       email: '',
@@ -19,14 +19,16 @@ export default class SignUpView extends React.Component {
     }
 
     firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
-      .then(() => { Alert.alert('User Account Created!, Go back to Login') }, (error) => { Alert.alert(error.message) })
+      .then(() => { Alert.alert('You signed up!') })
+      .then(() => { this.props.navigation.navigate('LoginView') })
+      .catch((error) => { Alert.alert(error.message) })
   }
 
   onBackToLoginPress = () => {
     this.props.navigation.navigate('LoginView')
   }
 
-  render () {
+  render() {
     return (
       <View style={{ paddingTop: 50, alignItems: 'center' }}>
 

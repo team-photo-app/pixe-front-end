@@ -34,11 +34,11 @@ const AppNavigator = createDrawerNavigator(
     // EventList: { screen: EventList },
     // Landing: {screen: Landing},
   }, {
-    initialRouteName: 'LoginView',
-    drawerWidth: 300,
-    contentOptions: {},
-    contentComponent: props => <SideBar {...props} />
-  }
+  initialRouteName: 'LoginView',
+  drawerWidth: 300,
+  contentOptions: {},
+  contentComponent: props => <SideBar {...props} />
+}
 )
 
 const defaultStateForAppNav = AppNavigator.router.getStateForAction
