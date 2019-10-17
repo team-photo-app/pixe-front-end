@@ -1,8 +1,7 @@
 import React from 'react'
 import { View, Text, TextInput, Button, Alert } from 'react-native'
 import { StackActions, NavigationActions } from 'react-navigation'
-import * as firebase from 'firebase'
-
+import firebase from '../../FB/firebase'
 
 export default class LoginView extends React.Component {
   constructor(props) {
@@ -21,11 +20,6 @@ export default class LoginView extends React.Component {
   }
 
   handleOnCreateAccountPress = () => {
-    var navActions = StackActions.reset({
-      index: 0,
-      action: [NavigationActions.navigate({ routeName: 'SignUpView' })]
-    })
-
     this.props.navigation.navigate('SignUpView')
   }
 
@@ -46,7 +40,6 @@ export default class LoginView extends React.Component {
         <Text>
           Log In
         </Text>
-
         <TextInput
           value={this.state.email}
           onChangeText={(text) => { this.setState({ email: text }) }}
