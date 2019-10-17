@@ -1,6 +1,8 @@
-import React from 'react';
-import { createDrawerNavigator, createStackNavigator, createAppContainer } from "react-navigation";
+import React from 'react'
+import { createDrawerNavigator, createStackNavigator, createAppContainer, withNavigation } from 'react-navigation'
 // import { Root } from 'native-base'
+import LoginView from './views/auth/login-view'
+import SignUpView from './views/auth/signup-view.js'
 import CameraPage from './views/Camera/Camera.page.js';
 import QR from './views/JoinEvent/components/QR.component';
 import Gallery from './views/Gallery/Gallery.page';
@@ -12,25 +14,25 @@ import JoinEvent from './views/JoinEvent/JoinEvent';
 // import MyEvents from './views/MyEvents/MyEvents.page';
 
 const AppNavigator = createDrawerNavigator(
-    {
-      CameraPage: {screen: CameraPage},
-      JoinEvent: {screen: JoinEvent},
-      QR: {screen: QR},
-      Gallery: {screen: Gallery},
+  {
+    LoginView: { screen: LoginView },
+    SignUpView: { screen: SignUpView },
+    CameraPage: {screen: CameraPage},
+    JoinEvent: {screen: JoinEvent},
+    QR: {screen: QR},
+    Gallery: {screen: Gallery},
 
-      // EventCreate: {screen: EventCreate},
-      // EventJoin: {screen: EventJoin},
-      // Landing: {screen: Landing},
-      // MyEvents: {screen: MyEvents}
+    // EventCreate: {screen: EventCreate},
+    // EventJoin: {screen: EventJoin},
+    // Landing: {screen: Landing},
+    // MyEvents: {screen: MyEvents}
+  }, {
+    drawerWidth: 300,
+    contentOptions: {},
+    contentComponent: props => <SideBar {...props} />
+  }
+)
 
-    },{
-      drawerWidth: 300,
-      contentOptions: {
-      },
-      contentComponent: props => <SideBar {...props} />
+const AppContainer = createAppContainer(AppNavigator)
 
-    });
-
-const AppContainer = createAppContainer(AppNavigator);
-
-export default AppContainer;
+export default AppContainer

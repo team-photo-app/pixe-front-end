@@ -7,15 +7,22 @@ import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
 import AppContainer from './src/NavRouter'
 
-
 class App extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       isReady: false,
-    };
+      isAuthenticated: false
+    }
+
+    if (!firebase.apps.length) { firebase.initializeApp(superhotbase) }
+    firebase.auth().onAuthStateChanged(this.onAuthStateChanged)
   }
 
+  onAuthStateChanged = (user) => {
+    this.setState({ isAuthenticated: !!user })
+  }
+  
   async componentDidMount() {
     await Font.loadAsync({
       Roboto: require('native-base/Fonts/Roboto.ttf'),
@@ -37,6 +44,5 @@ class App extends React.Component {
     );
   }
 }
-
 
 export default App;
