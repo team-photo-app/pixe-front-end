@@ -19,7 +19,7 @@ export default class SignUpView extends React.Component {
     }
 
     firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
-      .then(() => { }, (error) => { Alert.alert(error.message) })
+      .then(() => { Alert.alert('User Account Created!, Go back to Login') }, (error) => { Alert.alert(error.message) })
   }
 
   onBackToLoginPress = () => {

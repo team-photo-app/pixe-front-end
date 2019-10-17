@@ -3,7 +3,6 @@ import { View, Text, TextInput, Button, Alert } from 'react-native'
 import { StackActions, NavigationActions } from 'react-navigation'
 import * as firebase from 'firebase'
 
-
 export default class LoginView extends React.Component {
   constructor(props) {
     super(props)
@@ -16,8 +15,11 @@ export default class LoginView extends React.Component {
 
   handleOnLoginPress = () => {
     firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
-      .then(() => { }, (err) => { Alert.alert(err.message) })
-    this.props.navigation.navigate('Gallery')
+      .then(() => {
+        firebase.auth().onAuthStateChanged(user => {
+          this.props.navigation.navigate(user ? 'Gallery' : 'SignUpView')
+        })
+      })
   }
 
   handleOnCreateAccountPress = () => {
@@ -37,7 +39,6 @@ export default class LoginView extends React.Component {
 
     this.props.navigation.dispatch(navActions)
   }
-
 
   render() {
     return (
