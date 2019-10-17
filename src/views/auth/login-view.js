@@ -1,10 +1,10 @@
 import React from 'react'
 import { View, Text, TextInput, Button, Alert } from 'react-native'
 import { StackActions, NavigationActions } from 'react-navigation'
-import firebase from '../../FB/firebase'
+import * as firebase from 'firebase'
 
 export default class LoginView extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       email: '',
@@ -38,7 +38,7 @@ export default class LoginView extends React.Component {
     this.props.navigation.dispatch(navActions)
   }
 
-  render () {
+  render() {
     return (
       <View style={{ paddingTop: 50, alignItems: 'center' }}>
 
