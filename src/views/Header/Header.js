@@ -3,14 +3,12 @@ import {
   Container,
   Header,
   Title,
-  Content,
   Button,
-  Footer,
   Body,
   Left,
   Right,
-  Icon
-} from "native-base";
+  Icon, Text,
+} from 'native-base'
 import styles from "./styles";
 import { withNavigation } from 'react-navigation';
 
@@ -24,10 +22,13 @@ class PixeHeader extends Component {
             <Left>
               <Button transparent onPress={() => this.props.navigation.openDrawer()}>
                 <Icon
-                    color="black"
+                    style="black"
                     name="menu" />
               </Button>
             </Left>
+            <Right>
+            <Text>PixE</Text>
+          </Right>
             <Body>
               <Title>Gallery</Title>
             </Body>

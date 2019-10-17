@@ -1,9 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { View, TextInput, Button, Alert } from 'react-native';
+import { View, TextInput, Button, Alert} from 'react-native';
 import uuid from 'uuid/v4';
 import QRCodeComp from './components/QRCodeComp.component';
 import { EVENTS_LIST_ADD } from '../../store/actions/userActions';
+import {
+  Container,
+  Content,
+  Icon,
+  Header,
+  Footer,
+  Left,
+  Right, Text,
+} from 'native-base'
+import styles from './styles/styles'
+import styleTemplate from '../templates/styleTemplate'
+// import HiddenView from './components/hiddenView'
 
 class EventCreate extends React.Component {
   constructor(props){
@@ -13,6 +25,7 @@ class EventCreate extends React.Component {
       eventName: '',
       eventDescription: '',
       isFormFilled: false,
+      isHidden: false,
     }
   }
 
@@ -37,14 +50,17 @@ class EventCreate extends React.Component {
               }
             })
       this.props.joinEvent({ eventID: id, eventName: this.state.eventName, eventDescription: this.state.eventDescription });
+
     } else {
       Alert.alert('Hey.', 'There has to be a name for your event.');
     }
   }
 
+
   handleQR = () => {
     return (
-      <View style={{margin:20}}>
+      <Content>
+      <View style={{margin:20, borderWidth: 1, borderColor: "black"}}>
         <QRCodeComp
           eventID={this.state.id}
           eventName={this.state.eventName}
@@ -52,12 +68,35 @@ class EventCreate extends React.Component {
         />
         <Button title={'OK'} onPress={() => this.setState({ id:'', eventName:'', eventDescription:'', isFormFilled: false })}/>
       </View>
+    </Content>
     )
   }
 
   render() {
     return (
-      <View style={{flex:1, justifyContent:'center', alignContent:'center'}}>
+      <Container>
+        <Header
+          style={styleTemplate.header}
+        >
+          <Left>
+              <Icon
+                style={{color: '#0D0D0D'}}
+                name="menu"
+                onPress={() => this.props.navigation.openDrawer()}
+              />
+          </Left>
+          <Right>
+            <Text>PixE</Text>
+          </Right>
+        </Header>
+        <Content
+          contentContainerStyle={styles.bottom}
+        >
+          {/*<HiddenView*/}
+          {/*    onTextChange={text => this.setState({isHidden: text })}*/}
+          {/*    value={this.state.isHidden}*/}
+          {/* >*/}
+          {/*    <HiddenView hide={this.state.isHidden}>*/}
         <TextInput
           placeholder='Enter event name'
           value={this.state.eventName}
@@ -68,20 +107,29 @@ class EventCreate extends React.Component {
           value={this.state.eventDescription}
           onChangeText={ (text) => this.handleChange('eventDescription', text) }
         />
-        <Button title={'Submit'} onPress={this.handleSubmit} />
+        <Button
+          style={styles.submit}
+          title={'Submit'} onPress={this.handleSubmit} />
+          {/*    </HiddenView>*/}
+          {/*</HiddenView>*/}
         {
           this.state.isFormFilled
             ? this.handleQR()
             : null
         }
         <Button title={'Event State'} onPress={()=>{console.log(this.props.state.events)}}/>
-      </View>
+
+      </Content>
+        <Footer
+          style={styleTemplate.footer}
+        />
+      </Container>
     );
   }
 }
 
 const mapStateToProps = (state) => {
-  return { 
+  return {
     state: state.userReducer
   }
 }

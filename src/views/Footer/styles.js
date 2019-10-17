@@ -4,7 +4,7 @@ const { StyleSheet } = React;
 
 export default {
   container: {
-    backgroundColor: "#FFF"
+    backgroundColor: '#FCFEFF'
   },
   text: {
     alignSelf: "center",
@@ -21,8 +21,8 @@ export default {
   footer: {
     // position: 'absolute',
     bottom: 0,
-    backgroundColor: 'white',
-    borderColor: '#ddd',
+    backgroundColor: '#FFFEFF',
+    borderColor: '#D9D9D9',
 
   }
 };
