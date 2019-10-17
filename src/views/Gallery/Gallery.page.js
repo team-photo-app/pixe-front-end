@@ -1,4 +1,3 @@
-
 import React from 'react';
 import {Container, Content, Header, Footer, Icon, Button, Left, Right, Text} from 'native-base';
 import { View, FlatList } from 'react-native';
@@ -83,9 +82,7 @@ class Gallery extends React.Component {
                 : null
           }
           <Footer  style={styles.footer}>
-              <CameraFooter
-
-              />
+              <CameraFooter/>
           </Footer>
         </Container>
     )
