@@ -26,12 +26,12 @@ class CameraFooter extends Component {
    * @allowEditing  {true} =>{constresult=awaitImagePicker.launchCameraAsync({allowsEditing
    * @aspect  [4,3]
    * @if  !result.cancelled
-   * @param  {} this.uploadImage(result.uri
+   * @UploadImage  {} this.uploadImage(result.uri
    * @param  {} .then
-   * @param  {} =>{Alert.alert('Success!')
-   * @param  {} .catch(error)
-   * @param  {} =>{console.error(error)
-   * @param  {} Alert.alert(error)
+   * @Alert  {} =>{Alert.alert('Success!')
+   * @Catch  {} .catch(error)
+   * @Error  {} =>{console.error(error)
+   * @Alert  {} Alert.alert(error)
    */
 
   launchCamera = async () => {
@@ -48,6 +48,16 @@ class CameraFooter extends Component {
       })
     }
   };
+  /**
+   * Push image to fireStore
+   * @Arg  {} uri
+   * @Res  {} constresponse=awaitfetch(uri)
+   * @Blob  {} constblob=awaitresponse.blob(
+   * @Ref  {} constref=firebase.storage(
+   * @ImageBucket  {} .ref('pixe'
+   * @NameForImage  {} .child(uuidv4(
+   * @Return {} returnref.put(blob
+   */
 
   uploadImage = async (uri) => {
     const response = await fetch(uri)

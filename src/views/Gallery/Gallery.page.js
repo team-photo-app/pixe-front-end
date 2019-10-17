@@ -36,13 +36,10 @@ class Gallery extends React.Component {
    * @PullArray  {} .then(list=>{letpicName=''constdownloadURLPromiseArray=list.items.map((item
    * @Split  {} =>{picName=item.location.path_.split('/'
    * @ReturnsAnImage  {} [1]returnthis.getImage(picName
-   * @param  {} }
    * @param  {} returnPromise.all(downloadURLPromiseArray
-   * @param  {} }
    * @param  {} .then((urlArray
-   * @param  {} =>{constobjectifiedArray=urlArray.map((item
-   * @param  {item} =>{return{key
-   * @param  {item}}} url
+   * @MapOver  {} =>{constobjectifiedArray=urlArray.map((item
+   * @Return  { key: item, url: item }
    */
 
   getList = () => {
