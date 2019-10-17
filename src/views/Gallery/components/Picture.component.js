@@ -1,14 +1,15 @@
-import React from 'react';
-import { View, Image } from 'react-native';
+import React from 'react'
+import { View, Image } from 'react-native'
+import styles from '../styles/styles'
 
 class Picture extends React.Component {
-  render() {
+  render () {
     return (
-      <View>
-        <Image style={{height:50, width:50}} source={{uri:this.props.url}} />
+      <View style={styles.pictureWrapper}>
+        <Image style={styles.pictureSize} source={{ uri: this.props.url }} />
       </View>
-    );
+    )
   }
 }
 
-export default Picture;
+export default Picture

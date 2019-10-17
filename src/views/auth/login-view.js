@@ -1,15 +1,14 @@
 import React from 'react'
 import { View, Text, TextInput, Button, Alert } from 'react-native'
 import { StackActions, NavigationActions } from 'react-navigation'
-import * as firebase from 'firebase'
+import firebase from '../../FB/firebase'
 
 export default class LoginView extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       email: '',
       password: ''
-
     }
   }
 
@@ -17,17 +16,12 @@ export default class LoginView extends React.Component {
     firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
       .then(() => {
         firebase.auth().onAuthStateChanged(user => {
-          this.props.navigation.navigate(user ? 'Gallery' : 'SignUpView')
+          this.props.navigation.navigate(user ? 'MyEvent' : 'SignUpView')
         })
       })
   }
 
   handleOnCreateAccountPress = () => {
-    var navActions = StackActions.reset({
-      index: 0,
-      action: [NavigationActions.navigate({ routeName: 'SignUpView' })]
-    })
-
     this.props.navigation.navigate('SignUpView')
   }
 
@@ -40,14 +34,13 @@ export default class LoginView extends React.Component {
     this.props.navigation.dispatch(navActions)
   }
 
-  render() {
+  render () {
     return (
       <View style={{ paddingTop: 50, alignItems: 'center' }}>
 
         <Text>
           Log In
         </Text>
-
         <TextInput
           value={this.state.email}
           onChangeText={(text) => { this.setState({ email: text }) }}
@@ -84,6 +77,8 @@ export default class LoginView extends React.Component {
           title='Forgot Password?'
           onPress={this.handleOnForgotPasswordPress}
         />
+
+        <Button title='Login Testuser' onPress={() => { this.setState({ email: 'testuser123@gmail.com', password: 'testing' }) }} />
 
       </View>
     )

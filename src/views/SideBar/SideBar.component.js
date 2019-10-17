@@ -1,102 +1,92 @@
 import React from 'react'
+
 import {
   Content,
-    Text,
-    List,
-    ListItem,
-    Icon,
-    Container,
-    Left,
-    // Right,
-    // Badge
-} from 'native-base';
-import {NavigationActions} from 'react-navigation';
-import {ScrollView, View} from 'react-native';
+  Text,
+  List,
+  ListItem,
+  Icon,
+  Container,
+  Left,
+  Right
+  // Badge
+} from 'native-base'
 
 const routeData = [
   {
-    name: "Gallery",
-    route: "Gallery",
-    icon: "albums"
+    name: 'Gallery',
+    route: 'Gallery',
+    icon: 'albums'
   },
   {
-    name: "Camera",
-    route: "CameraPage",
-    icon: "camera",
+    name: 'Join Event',
+    route: 'JoinEvent',
+    icon: 'flower'
   },
   {
-    name: "Scanner",
-    route: "ScannerPage",
-    icon: "arrow-down"
+    name: 'My Events',
+    route: 'MyEvents',
+    icon: 'pizza'
   },
   {
-    name: "Home",
-    route: "Home",
-    icon: "arrow-up"
+    name: 'Create Event',
+    route: 'EventCreate',
+    icon: 'arrow-down'
   },
   {
-    name: "Create Event",
-    route: "EventCreate",
-    icon: "arrow-down",
+    name: 'Create Account',
+    route: 'SignUpView',
+    icon: 'flower'
   },
   {
-   name: "Landing",
-   route: "Landing",
-   icon: "arrow-up",
-  },
-  {
-    name: "Join Event",
-    route: "EventJoin",
-    icon: "arrow-up",
-  },
-  {
-    name: "Event List",
-    route: "EventList",
-    icon: "book"
+    name: 'Log Out',
+    route: 'LoginView',
+    icon: 'car'
   }
-];
-
-
+]
 
 class SideBar extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {};
-
+  constructor (props) {
+    super(props)
+    this.state = {}
   }
 
-  render() {
+  render () {
     return (
 
-        <Container>
-          <Content>
-            <List
-                dataArray={routeData}
-                renderRow={data =>
-                    <ListItem
-                        button
-                        noBorder
-                        onPress={() => this.props.navigation.navigate(
-                            data.route)}
-                    >
-                      <Left>
-                        <Icon
-                            active
-                            name={data.icon}
-                            style={{color: "#777", fontSize: 26, width: 30}}
-                        />
-                        <Text style={{color: "black"}}>
-                          {data.name}
-                        </Text>
-                      </Left>
-
-                    </ListItem>}
+      <Container>
+        <Content>
+          <Right>
+            <Icon
+              onPress={() => this.props.navigation.closeDrawer()}
+              name='arrow-back'
             />
-          </Content>
-        </Container>
+          </Right>
+          <List
+            keyExtractor={(item, idx) => idx.toString()}
+            dataArray={routeData}
+            renderRow={data =>
+              <ListItem
+                button
+                noBorder
+                onPress={() => this.props.navigation.navigate(data.route)}
+              >
+                <Left>
+                  <Icon
+                    active
+                    name={data.icon}
+                    style={{ color: '#777', fontSize: 26, width: 30 }}
+                  />
+                  <Text style={{ color: 'black' }}>
+                    {data.name}
+                  </Text>
+                </Left>
+              </ListItem>}
+          />
+        </Content>
+      </Container>
     )
   }
 }
 
-export default SideBar;
+export default SideBar
