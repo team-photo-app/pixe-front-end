@@ -4,7 +4,7 @@ import { View, Text, TextInput, Button, Alert } from 'react-native'
 import firebase from '../../FB/firebase'
 
 export default class SignUpView extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       email: '',
@@ -26,7 +26,7 @@ export default class SignUpView extends React.Component {
     this.props.navigation.navigate('LoginView')
   }
 
-  render() {
+  render () {
     return (
       <View style={{ paddingTop: 50, alignItems: 'center' }}>
 
@@ -79,6 +79,3 @@ export default class SignUpView extends React.Component {
     )
   }
 }
-
-
-
