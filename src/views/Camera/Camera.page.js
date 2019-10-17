@@ -62,10 +62,6 @@ class CameraPage extends React.Component {
                              title="Click to Access Camera"
                              onPress={this.onChooseImagePress}>
             </Icon>
-              {/*<Button*/}
-              {/*    title="Scanny-Boy"*/}
-              {/*    onPress={() => navigate('BarCodeScanner', { name: 'BarCodeScanner'})}>*/}
-              {/*</Button>*/}
             </Footer>
         </Container>
 

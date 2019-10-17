@@ -1,10 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Text, View, StyleSheet, Button, Alert } from 'react-native';
+import { Icon } from 'native-base'
 import * as Permissions from 'expo-permissions';
 import { BarCodeScanner} from 'expo-barcode-scanner';
-import styles from '../styles/scanner-styles';
+import styles from '../../Camera/styles/camera-toolbar-styles';
 import { EVENTS_LIST_ADD } from '../../../store/actions/userActions';
+import { StackActions} from 'react-navigation';
 
 class QR extends React.Component {
   state = {
@@ -20,6 +22,13 @@ class QR extends React.Component {
     const { status } = await Permissions.askAsync(Permissions.CAMERA);
     this.setState({ hasCameraPermissions: status === 'granted' });
   };
+  // Trying to get a back button from the QR reader to MY EVENTS
+  // handleBackActions = () => {
+  //   const backAction = StackActions.pop({
+  //     n: 1,
+  //   });
+  //   this.props.navigation.dispatch(backAction);
+  // };
 
   handleBarCodeScanned = ({ type, data }) => {
     const { eventID, eventName, eventDescription } = JSON.parse(data);
@@ -31,10 +40,9 @@ class QR extends React.Component {
       this.props.joinEvent({ eventID, eventName, eventDescription });
       Alert.alert('You\'re in!', `${eventName}`);
     }
-  }
+  };
 
   render() {
-
     const { hasCameraPermissions, scanned } = this.state;
 
     if ( hasCameraPermissions === null) {
@@ -46,10 +54,16 @@ class QR extends React.Component {
 
     return (
       <View style={ styles.alignCenter }>
+
+
         <BarCodeScanner
           onBarCodeScanned={ scanned ? undefined : this.handleBarCodeScanned }
           style={ StyleSheet.absoluteFillObject }
-        />
+        >
+        {/*  <View style={styles.icon}>*/}
+        {/*  <Icon style={{color: '#fff'}} name="ios-arrow-back" onPress={this.handleBackActions}/>*/}
+        {/*</View>*/}
+        </BarCodeScanner>
 
         { scanned && (
           <Button title={'Scan your Code'} onPress={() => this.setState({ scanned: false })} />
@@ -60,11 +74,12 @@ class QR extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return { userEvents: state.events }
+  return { userEvents: state.userReducer.events }
 }
+
 
 const mapDispatchToState = (dispatch) => {
   return { joinEvent: (eventData) => dispatch(EVENTS_LIST_ADD(eventData)) }
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToState)(QR);
