@@ -6,12 +6,11 @@ import {
   Footer,
   Content,
   Container,
-  Button, Icon, Left, Right,
+  Button, Icon, Left, Right
 } from 'native-base'
-import styles from './styles/styles';
 import styleTemplate from '../templates/styleTemplate'
 import { connect } from 'react-redux'
-import { View, Text, Image, ScrollView } from 'react-native'
+import { Image, ScrollView } from 'react-native'
 import { TouchableHighlight } from 'react-native-gesture-handler'
 
 class MyEvents extends React.Component {
@@ -36,7 +35,8 @@ class MyEvents extends React.Component {
             <Button transparent onPress={() => this.props.navigation.openDrawer()}>
               <Icon
                 style={styleTemplate.menu}
-                name="menu" />
+                name='menu'
+              />
             </Button>
           </Left>
           <Right>
@@ -100,10 +100,9 @@ class MyEvents extends React.Component {
             </View>
           </ScrollView>
         </Content>
-        <Footer style={styleTemplate.footer}
-        />
+        <Footer style={styleTemplate.footer} />
       </Container>
-    );
+    )
   }
 }
 
