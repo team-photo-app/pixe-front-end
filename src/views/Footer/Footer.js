@@ -1,15 +1,9 @@
 import React, { Component } from "react";
 import {
   Container,
-  Header,
-  Title,
   Content,
-  Button,
   Footer,
   FooterTab,
-  Body,
-  Left,
-  Right,
   Icon
 } from "native-base";
 import styles from "./styles";
@@ -51,24 +45,11 @@ class CameraFooter extends Component {
 
   render() {
     return (
-        <Container style={styles.container}>
-          <Header>
-            <Left>
-              <Button transparent onPress={() => this.props.navigation.openDrawer()}>
-                <Icon name="menu" />
-              </Button>
-            </Left>
-            <Body>
-              <Title>Footer</Title>
-            </Body>
-            <Right />
-          </Header>
-
-          <Content padder />
-
-          <Footer>
+        <Container >
+          <Footer style={styles.footer} >
             <FooterTab style={styles.alignCenter}>
-              <Icon name="camera"
+              <Icon
+                    name="camera"
                     title="Click to Access Camera"
                     onPress={this.onChooseImagePress}>
               </Icon>
