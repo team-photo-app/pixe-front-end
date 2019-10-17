@@ -7,7 +7,7 @@ import { BarCodeScanner} from 'expo-barcode-scanner';
 import styles from '../styles/scanner-styles'
 
 
-export default  class BarcodeScanner extends React.Component {
+export default  class QR extends React.Component {
   state = {
     hasCameraPermission: null,
     scanned: false,

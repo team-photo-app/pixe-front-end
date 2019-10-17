@@ -1,4 +1,6 @@
 import React from 'react'
+import styles from "./styles";
+
 import {
   Content,
     Text,
@@ -7,7 +9,7 @@ import {
     Icon,
     Container,
     Left,
-    // Right,
+    Right,
     // Badge
 } from 'native-base';
 
@@ -18,14 +20,14 @@ const routeData = [
     icon: "albums"
   },
   {
-    name: "Scanner",
-    route: "ScannerPage",
-    icon: "arrow-down"
+    name: "Join Event",
+    route: "JoinEvent",
+    icon: "flower"
   },
   {
-    name: "Home",
-    route: "Home",
-    icon: "arrow-up"
+    name: "My Events",
+    route: "MyEvents",
+    icon: "pizza"
   },
   {
     name: "Create Event",
@@ -33,19 +35,14 @@ const routeData = [
     icon: "arrow-down",
   },
   {
-   name: "Landing",
-   route: "Landing",
-   icon: "arrow-up",
+    name: "Create Account",
+    route: "SignUpView",
+    icon: "flower"
   },
   {
-    name: "Join Event",
-    route: "EventJoin",
-    icon: "arrow-up",
-  },
-  {
-    name: "Event List",
-    route: "EventList",
-    icon: "book"
+    name: "Log Out",
+    route: "LoginView",
+    icon: "car",
   }
 ];
 
@@ -54,9 +51,7 @@ const routeData = [
 class SideBar extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {};
-
   }
 
   render() {
@@ -64,6 +59,11 @@ class SideBar extends React.Component {
 
         <Container>
           <Content>
+            <Right>
+              <Icon
+                onPress={() => this.props.navigation.closeDrawer()}
+                name="arrow-back" />
+            </Right>
             <List
                 dataArray={routeData}
                 renderRow={data =>
