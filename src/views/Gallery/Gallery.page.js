@@ -77,8 +77,7 @@ class Gallery extends React.Component {
                     renderItem={(itemData) => {
                       return (
                           <View style={ styles.pictureWrapper }>
-                          <Picture
-                              url={itemData.item.url} />
+                            <Picture url={itemData.item.url} />
                           </View>
                       );
                     }}
