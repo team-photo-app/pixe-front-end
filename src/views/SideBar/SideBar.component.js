@@ -26,7 +26,7 @@ const routeData = [
   },
   {
     name: "My Events",
-    route: "MyEvents",
+    route: "EventList",
     icon: "pizza"
   },
   {

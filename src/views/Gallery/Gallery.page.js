@@ -1,11 +1,9 @@
 import React from 'react';
-import {Container, Content, Header, Footer, Icon, Button, Left, Right, Text} from 'native-base';
+import {Container, Header, Footer, Icon, Button, Left, Right, Text} from 'native-base';
 import { View, FlatList } from 'react-native';
 import firebase from '../../FB/firebase';
-import PixeHeader from '../Header/Header';
 import Picture from './components/Picture.component';
 import CameraFooter from '../Footer/Footer';
-import { Col, Row, Grid } from 'react-native-easy-grid';
 import styles from './styles/styles';
 
 class Gallery extends React.Component {
@@ -77,12 +75,12 @@ class Gallery extends React.Component {
                       );
                     }}
                     numColumns={3}
-                    keyExtractor={((item) => (item.key))}
-                />
+                    keyExtractor={(item, index) => index.toString()}
+                  />
                 : null
           }
-          <Footer  style={styles.footer}>
-              <CameraFooter/>
+          <Footer style={styles.footer}>
+            <CameraFooter/>
           </Footer>
         </Container>
     )

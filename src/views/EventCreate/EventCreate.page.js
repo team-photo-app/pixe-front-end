@@ -57,19 +57,18 @@ class EventCreate extends React.Component {
 
   render() {
     return (
-      <View>
+      <View style={{flex:1, justifyContent:'center', alignContent:'center'}}>
         <TextInput
           placeholder='Enter event name'
           value={this.state.eventName}
           onChangeText={ (text) => this.handleChange('eventName', text) }
-          onSubmitEditing={this.handleSubmit}
         />
         <TextInput
           placeholder='Enter event description'
           value={this.state.eventDescription}
           onChangeText={ (text) => this.handleChange('eventDescription', text) }
-          onSubmitEditing={this.handleSubmit}
         />
+        <Button title={'Submit'} onPress={this.handleSubmit} />
         {
           this.state.isFormFilled
             ? this.handleQR()
@@ -83,7 +82,7 @@ class EventCreate extends React.Component {
 
 const mapStateToProps = (state) => {
   return { 
-    state: state
+    state: state.userReducer
   }
 }
 
