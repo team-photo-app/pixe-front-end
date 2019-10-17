@@ -3,6 +3,7 @@ import { createDrawerNavigator, createStackNavigator, createAppContainer, withNa
 // import { Root } from 'native-base'
 import LoginView from './views/auth/login-view'
 import SignUpView from './views/auth/signup-view.js'
+import ForgotPasswordView from './views/auth/forgot-password'
 import CameraPage from './views/Camera/Camera.page.js'
 import QR from './views/JoinEvent/components/QR.component'
 import Gallery from './views/Gallery/Gallery.page'
@@ -18,6 +19,7 @@ const AppNavigator = createDrawerNavigator(
   {
     LoginView: { screen: LoginView },
     SignUpView: { screen: SignUpView },
+    ForgotPasswordView: { screen: ForgotPasswordView },
     CameraPage: { screen: CameraPage },
     JoinEvent: { screen: JoinEvent },
     QR: { screen: QR },
