@@ -9,7 +9,6 @@ export default class LoginView extends React.Component {
     this.state = {
       email: '',
       password: ''
-
     }
   }
 
@@ -76,6 +75,8 @@ export default class LoginView extends React.Component {
           title='Forgot Password?'
           onPress={this.handleOnForgotPasswordPress}
         />
+
+        <Button title={'Login Testuser'} onPress={ () => { this.setState({email:'testuser123@gmail.com', password:'testing'}) }} />
 
       </View>
     )
