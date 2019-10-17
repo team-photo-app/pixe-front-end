@@ -1,7 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import store from './src/store/store';
-
+import { Container, Content, Icon, Header, Footer} from 'native-base'
 import { AppLoading } from 'expo';
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
@@ -27,6 +27,7 @@ class App extends React.Component {
   render() {
     return (
       this.state.isReady
+
         ? <Provider store={store}>
             <AppContainer />
           </Provider>

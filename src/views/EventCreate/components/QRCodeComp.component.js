@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import QRCode from 'react-native-qrcode'
+import QRCode from 'react-qr-code'
 
 class QRCodeComp extends React.Component {
   generateQRData = () => {

@@ -9,7 +9,7 @@ import Gallery from './views/Gallery/Gallery.page'
 import SideBar from './views/SideBar/SideBar.component'
 import JoinEvent from './views/JoinEvent/JoinEvent'
 import EventCreate from './views/EventCreate/EventCreate.page'
-import EventList from './views/EventList/EventList.page'
+// import EventList from './views/EventList/EventList.page'
 // import EventJoin from './views/EventJoin/EventJoin.page';
 // import Landing from './views/Landing/Landing.page';
 import MyEvents from './views/MyEvents/MyEvents.page'
@@ -22,10 +22,10 @@ const AppNavigator = createDrawerNavigator(
     JoinEvent: { screen: JoinEvent },
     QR: { screen: QR },
     EventCreate: { screen: EventCreate },
-    Gallery: { screen: Gallery },
-    EventList: { screen: EventList },
+    MyEvents: { screen: MyEvents },
+    Gallery: { screen: Gallery }
+    // EventList: { screen: EventList },
     // Landing: {screen: Landing},
-    MyEvents: { screen: MyEvents }
   }, {
     initialRouteName: 'LoginView',
     drawerWidth: 300,
@@ -42,6 +42,7 @@ AppNavigator.router.getStateForAction = (action, state) => {
   }
   return defaultStateForAppNav(action, state)
 }
+
 const AppContainer = createAppContainer(AppNavigator)
 
 export default AppContainer

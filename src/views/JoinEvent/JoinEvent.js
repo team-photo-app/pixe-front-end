@@ -4,6 +4,9 @@ import QRComp from './components/QR.component';
 class JoinEvent extends React.Component {
   render() {
     return (
+
+
+
       <QRComp/>
     );
   }
