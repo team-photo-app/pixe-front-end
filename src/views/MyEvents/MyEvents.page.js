@@ -6,16 +6,16 @@ import {
   Footer,
   Content,
   Container,
-  Button, Icon, Left, Right,
+  Button, Icon, Left, Right
 } from 'native-base'
 import styles from './styles/styles';
 import styleTemplate from '../templates/styleTemplate'
 import { connect } from 'react-redux'
-import { View, Text, Image, ScrollView } from 'react-native'
+import { Image, ScrollView } from 'react-native'
 import { TouchableHighlight } from 'react-native-gesture-handler'
 
 class MyEvents extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       eventList: [],
@@ -23,12 +23,12 @@ class MyEvents extends React.Component {
     }
   }
 
-  componentDidMount () {
+  componentDidMount() {
     const eventList = Object.entries(this.props.events)
     this.setState({ ...this.state, eventList, isReady: true })
   }
 
-  render () {
+  render() {
     return (
       <Container>
         <Header style={styleTemplate.header}>
