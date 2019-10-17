@@ -6,8 +6,7 @@ import { BarCodeScanner} from 'expo-barcode-scanner';
 import styles from '../styles/scanner-styles';
 import { EVENTS_LIST_ADD } from '../../../store/actions/userActions';
 
-class BarcodeScanner extends React.Component {
-
+class QR extends React.Component {
   state = {
     hasCameraPermission: null,
     scanned: false,
@@ -68,4 +67,4 @@ const mapDispatchToState = (dispatch) => {
   return { joinEvent: (eventData) => dispatch(EVENTS_LIST_ADD(eventData)) }
 }
 
-export default connect(mapStateToProps, mapDispatchToState)(BarcodeScanner);
+export default connect(mapStateToProps, mapDispatchToState)(QR);

@@ -1,12 +1,14 @@
 import React from 'react';
 import { View, Image } from 'react-native';
+import styles from '../styles/styles';
+
 
 class Picture extends React.Component {
   render() {
     return (
-      <View>
-        <Image style={{height:50, width:50}} source={{uri:this.props.url}} />
-      </View>
+          <View style={ styles.pictureWrapper }>
+              <Image style={styles.pictureSize} source={{uri:this.props.url}} />
+          </View>
     );
   }
 }
