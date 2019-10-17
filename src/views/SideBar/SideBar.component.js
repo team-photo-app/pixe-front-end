@@ -26,7 +26,7 @@ const routeData = [
   },
   {
     name: "My Events",
-    route: "MyEvents",
+    route: "EventList",
     icon: "pizza"
   },
   {
@@ -65,26 +65,25 @@ class SideBar extends React.Component {
                 name="arrow-back" />
             </Right>
             <List
-                dataArray={routeData}
-                renderRow={data =>
-                    <ListItem
-                        button
-                        noBorder
-                        onPress={() => this.props.navigation.navigate(
-                            data.route)}
-                    >
-                      <Left>
-                        <Icon
-                            active
-                            name={data.icon}
-                            style={{color: "#777", fontSize: 26, width: 30}}
-                        />
-                        <Text style={{color: "black"}}>
-                          {data.name}
-                        </Text>
-                      </Left>
-
-                    </ListItem>}
+              keyExtractor={(item,idx) => idx.toString()}
+              dataArray={routeData}
+              renderRow={data =>
+                <ListItem
+                  button
+                  noBorder
+                  onPress={() => this.props.navigation.navigate(data.route)}
+                >
+                  <Left>
+                    <Icon
+                      active
+                      name={data.icon}
+                      style={{color: "#777", fontSize: 26, width: 30}}
+                    />
+                    <Text style={{color: "black"}}>
+                      {data.name}
+                    </Text>
+                  </Left>
+                </ListItem>}
             />
           </Content>
         </Container>

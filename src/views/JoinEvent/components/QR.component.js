@@ -74,8 +74,9 @@ class QR extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return { userEvents: state.events }
-};
+  return { userEvents: state.userReducer.events }
+}
+
 
 const mapDispatchToState = (dispatch) => {
   return { joinEvent: (eventData) => dispatch(EVENTS_LIST_ADD(eventData)) }

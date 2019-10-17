@@ -23,7 +23,7 @@ class QRCodeComp extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return { user: state.username }
+  return { user: state.userReducer.username }
 }
 
 export default connect(mapStateToProps)(QRCodeComp);

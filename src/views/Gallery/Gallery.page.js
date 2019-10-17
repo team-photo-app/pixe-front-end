@@ -1,14 +1,10 @@
 import React from 'react';
 import {Container, Content, Header, Footer, Icon, Button, Left, Right, Text} from 'native-base';
-import { View, FlatList, ScrollView, SafeAreaView, RefreshControl } from 'react-native';
+import { View, FlatList } from 'react-native';
 import firebase from '../../FB/firebase';
 import Picture from './components/Picture.component';
 import CameraFooter from '../Footer/Footer';
 import styles from './styles/styles';
-import Constants from 'expo-constants';
-
-
-
 
 class Gallery extends React.Component {
   constructor(props){
@@ -18,22 +14,16 @@ class Gallery extends React.Component {
       error: '',
       ready: false,
       refreshing: false,
-
     }
-
   }
-
 
   componentDidMount(){
     this.getList();
   }
 
   handleRefresh = () => {
-    this.setState( {refreshing: true, }, () => {
-      this.getList()
-    })
+    this.setState( {refreshing: true, }, () => {this.getList()})
   };
-
 
   getImage = (imageName) => {
     return firebase.storage().ref('pixe').child(`${imageName}`).getDownloadURL();
@@ -53,6 +43,7 @@ class Gallery extends React.Component {
       const objectifiedArray = urlArray.map((item) => {
         return { key: item, url: item };
       });
+      console.log('From getList: Loaded Gallery')
       this.setState({ ...this.state, pictures: objectifiedArray, ready: true, refreshing: false });
     })
     .catch((error) => {
@@ -68,8 +59,8 @@ class Gallery extends React.Component {
             <Left>
             <Button transparent onPress={() => this.props.navigation.openDrawer()}>
               <Icon
-                  style={{color: 'black'}}
-                  name="menu" />
+                style={{color: 'black'}}
+                name="menu" />
             </Button>
             </Left>
             <Right>
@@ -83,7 +74,6 @@ class Gallery extends React.Component {
                     refreshing={this.state.refreshing}
                     onRefresh={this.handleRefresh}
                     renderItem={(itemData) => {
-
                       return (
                           <View style={ styles.pictureWrapper }>
                           <Picture
@@ -92,12 +82,12 @@ class Gallery extends React.Component {
                       );
                     }}
                     numColumns={3}
-                    keyExtractor={((item) => (item.key))}
-                />
+                    keyExtractor={(item) => item.key}
+                  />
                 : null
           }
-          <Footer  style={styles.footer}>
-              <CameraFooter/>
+          <Footer style={styles.footer}>
+            <CameraFooter/>
           </Footer>
         </Container>
     )
