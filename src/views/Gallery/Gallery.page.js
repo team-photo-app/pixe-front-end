@@ -43,6 +43,7 @@ class Gallery extends React.Component {
       const objectifiedArray = urlArray.map((item) => {
         return { key: item, url: item };
       });
+      console.log('From getList: Loaded Gallery')
       this.setState({ ...this.state, pictures: objectifiedArray, ready: true, refreshing: false });
     })
     .catch((error) => {
@@ -58,8 +59,8 @@ class Gallery extends React.Component {
             <Left>
             <Button transparent onPress={() => this.props.navigation.openDrawer()}>
               <Icon
-                  style={{color: 'black'}}
-                  name="menu" />
+                style={{color: 'black'}}
+                name="menu" />
             </Button>
             </Left>
             <Right>
@@ -81,7 +82,7 @@ class Gallery extends React.Component {
                       );
                     }}
                     numColumns={3}
-                    keyExtractor={(item, index) => index.toString()}
+                    keyExtractor={(item) => item.key}
                   />
                 : null
           }
