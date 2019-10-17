@@ -11,7 +11,7 @@ import JoinEvent from './views/JoinEvent/JoinEvent';
 // import EventCreate from './views/EventCreate/EventCreate.page';
 // import EventJoin from './views/EventJoin/EventJoin.page';
 // import Landing from './views/Landing/Landing.page';
-// import MyEvents from './views/MyEvents/MyEvents.page';
+import MyEvents from './views/MyEvents/MyEvents.page';
 
 const AppNavigator = createDrawerNavigator(
   {
@@ -25,14 +25,23 @@ const AppNavigator = createDrawerNavigator(
     // EventCreate: {screen: EventCreate},
     // EventJoin: {screen: EventJoin},
     // Landing: {screen: Landing},
-    // MyEvents: {screen: MyEvents}
+    MyEvents: {screen: MyEvents}
   }, {
+    initialRouteName: "LoginView",
     drawerWidth: 300,
     contentOptions: {},
     contentComponent: props => <SideBar {...props} />
   }
-)
+);
 
-const AppContainer = createAppContainer(AppNavigator)
+const defaultStateForAppNav = AppNavigator.router.getStateForAction;
+
+AppNavigator.router.getStateForAction = (action, state) => {
+  if ( state && action.type === 'Navigation/BACK') {
+    console.log('SWIPE!')
+  }
+  return defaultStateForAppNav(action, state);
+};
+const AppContainer = createAppContainer(AppNavigator);
 
 export default AppContainer
