@@ -28,6 +28,22 @@ class Gallery extends React.Component {
   getImage = (imageName) => {
     return firebase.storage().ref('pixe').child(`${imageName}`).getDownloadURL()
   };
+  /**
+   * Renders gallery full of photos from the event you are currently viewing
+   * @FbStorageCall  {} returnfirebase.storage
+   * @eventYouAreIn  {} ('pixe')
+   * @ShowAll  {} listAll
+   * @PullArray  {} .then(list=>{letpicName=''constdownloadURLPromiseArray=list.items.map((item
+   * @Split  {} =>{picName=item.location.path_.split('/'
+   * @ReturnsAnImage  {} [1]returnthis.getImage(picName
+   * @param  {} }
+   * @param  {} returnPromise.all(downloadURLPromiseArray
+   * @param  {} }
+   * @param  {} .then((urlArray
+   * @param  {} =>{constobjectifiedArray=urlArray.map((item
+   * @param  {item} =>{return{key
+   * @param  {item}}} url
+   */
 
   getList = () => {
     return firebase.storage().ref('pixe').listAll()

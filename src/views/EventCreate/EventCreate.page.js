@@ -25,6 +25,15 @@ class EventCreate extends React.Component {
       return { ...prevState, [inputField]: text }
     })
   }
+  /**
+   * This will create a new event when submit button is clicked
+   * @param  {} =>{if(this.state.eventName.length>1
+   * @param  {} {constid=uuid(
+   * @param  {} this.setState((prevState
+   * @param  {} =>{return{...prevState
+   * @param  {true} isFormFilled
+   * @param  {id}}} id
+   */
 
   handleSubmit = () => {
     if (this.state.eventName.length > 1) {
@@ -41,6 +50,10 @@ class EventCreate extends React.Component {
       Alert.alert('Hey.', 'There has to be a name for your event.')
     }
   }
+  /**
+   * Handles what will showup when the QR code is rendered.
+   * @param  {20}}><QRCodeCompeventID={this.state.id}eventName={this.state.eventName}eventDescription={this.state.eventDescription}/><Buttontitle='OK'onPress={(} =>{return(<Viewstyle={{margin
+   */
 
   handleQR = () => {
     return (

@@ -13,6 +13,11 @@ class QRCodeComp extends React.Component {
     })
     return data
   }
+  /**
+   * Rendering the QR code after event is created
+   * @param  {} {return(<QRCodevalue={this.generateQRData(
+   * @param  {} }size={300}/>
+   */
 
   render () {
     return (

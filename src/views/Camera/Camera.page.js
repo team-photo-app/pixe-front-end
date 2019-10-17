@@ -37,9 +37,7 @@ class CameraPage extends React.Component {
       name: '',
       timeCreated: '',
       customMetaData: {
-        'picDescription': '',
-        'userId': '',
-        'eventId': ''
+        userId: ''
       }
     }
 
@@ -61,8 +59,7 @@ class CameraPage extends React.Component {
             name='camera'
             title='Click to Access Camera'
             onPress={this.onChooseImagePress}
-          >
-          </Icon>
+          />
         </Footer>
       </Container>
 

@@ -29,6 +29,13 @@ class QR extends React.Component {
   //   });
   //   this.props.navigation.dispatch(backAction);
   // };
+  /**
+   * Handles what happens when you scan a barcode
+   * @Args  {} {type, data}
+   * @param  {} eventID, eventName, eventDescription
+   * @parseing  {} JSON.parse(data)
+   * @SetState  {true}} this.setState({scanned
+   */
 
   handleBarCodeScanned = ({ type, data }) => {
     const { eventID, eventName, eventDescription } = JSON.parse(data)

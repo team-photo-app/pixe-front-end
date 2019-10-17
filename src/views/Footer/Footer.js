@@ -21,8 +21,20 @@ class CameraFooter extends Component {
       hasCameraPermission: null
     }
   }
+  /**
+   * Button on the footer of gallery. Launches the camera in App when pressed.
+   * @allowEditing  {true} =>{constresult=awaitImagePicker.launchCameraAsync({allowsEditing
+   * @aspect  [4,3]
+   * @if  !result.cancelled
+   * @param  {} this.uploadImage(result.uri
+   * @param  {} .then
+   * @param  {} =>{Alert.alert('Success!')
+   * @param  {} .catch(error)
+   * @param  {} =>{console.error(error)
+   * @param  {} Alert.alert(error)
+   */
 
-  onChooseImagePress = async () => {
+  launchCamera = async () => {
     const result = await ImagePicker.launchCameraAsync({
       allowsEditing: true,
       aspect: [4, 3]
@@ -61,7 +73,7 @@ class CameraFooter extends Component {
             <Icon
               name='camera'
               title='Click to Access Camera'
-              onPress={this.onChooseImagePress}
+              onPress={this.launchCamera}
             >
             </Icon>
           </FooterTab>
