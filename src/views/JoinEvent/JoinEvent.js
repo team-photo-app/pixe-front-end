@@ -1,12 +1,12 @@
 import React from 'react'
-import QRComp from './components/QR.component';
+import QRComp from './components/QR.component'
 
 class JoinEvent extends React.Component {
-  render() {
+  render () {
     return (
-      <QRComp/>
-    );
+      <QRComp />
+    )
   }
 }
 
-export default JoinEvent;
+export default JoinEvent

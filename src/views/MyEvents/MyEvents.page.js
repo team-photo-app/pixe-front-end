@@ -1,26 +1,26 @@
 import React from 'react'
-import { View, Text } from 'native-base';
+import { View, Text } from 'native-base'
 
 
 class MyEvents extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super(props)
 
-    this.state = {};
+    this.state = {}
 
   }
 
-  render() {
+  render () {
     return (
-       <View>
-         <Text>
+      <View>
+        <Text>
            My EVENTS
-         </Text>
-       </View>
-    );
+        </Text>
+      </View>
+    )
   }
 }
 
-MyEvents.propTypes = {};
+MyEvents.propTypes = {}
 
-export default MyEvents;
+export default MyEvents

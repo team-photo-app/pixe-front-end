@@ -1,17 +1,17 @@
-const React = require("react-native");
+const React = require('react-native')
 
-const { StyleSheet } = React;
+const { StyleSheet } = React
 
 export default {
   container: {
-    backgroundColor: "#FFF"
+    backgroundColor: '#FFF'
   },
   text: {
-    alignSelf: "center",
-    marginBottom: 7,
+    alignSelf: 'center',
+    marginBottom: 7
   },
   mb: {
-    marginBottom: 0,
+    marginBottom: 0
   },
   alignCenter: {
     flex: 1,
@@ -22,7 +22,7 @@ export default {
     // position: 'absolute',
     bottom: 0,
     backgroundColor: 'white',
-    borderColor: '#ddd',
+    borderColor: '#ddd'
 
   }
-};
+}

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react'
 import {
   Container,
   Header,
@@ -10,32 +10,31 @@ import {
   Left,
   Right,
   Icon
-} from "native-base";
-import styles from "./styles";
-import { withNavigation } from 'react-navigation';
+} from 'native-base'
+import styles from './styles'
+import { withNavigation } from 'react-navigation'
 
 class PixeHeader extends Component {
-
-
-  render() {
+  render () {
     return (
-        <Container style={styles.container}>
-          <Header>
-            <Left>
-              <Button transparent onPress={() => this.props.navigation.openDrawer()}>
-                <Icon
-                    color="black"
-                    name="menu" />
-              </Button>
-            </Left>
-            <Body>
-              <Title>Gallery</Title>
-            </Body>
-            <Right />
-          </Header>
-        </Container>
-    );
+      <Container style={styles.container}>
+        <Header>
+          <Left>
+            <Button transparent onPress={() => this.props.navigation.openDrawer()}>
+              <Icon
+                color='black'
+                name='menu'
+              />
+            </Button>
+          </Left>
+          <Body>
+            <Title>Gallery</Title>
+          </Body>
+          <Right />
+        </Header>
+      </Container>
+    )
   }
 }
 
-export default withNavigation(PixeHeader);
+export default withNavigation(PixeHeader)

@@ -4,7 +4,7 @@ import { StackActions, NavigationActions } from 'react-navigation'
 import firebase from '../../FB/firebase'
 
 export default class LoginView extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       email: '',
@@ -31,8 +31,7 @@ export default class LoginView extends React.Component {
     this.props.navigation.dispatch(navActions)
   }
 
-
-  render() {
+  render () {
     return (
       <View style={{ paddingTop: 50, alignItems: 'center' }}>
 
@@ -76,7 +75,7 @@ export default class LoginView extends React.Component {
           onPress={this.handleOnForgotPasswordPress}
         />
 
-        <Button title={'Login Testuser'} onPress={ () => { this.setState({email:'testuser123@gmail.com', password:'testing'}) }} />
+        <Button title="Login Testuser" onPress={() => { this.setState({ email: 'testuser123@gmail.com', password: 'testing' }) }} />
 
       </View>
     )

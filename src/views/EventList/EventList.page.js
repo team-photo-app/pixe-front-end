@@ -1,6 +1,6 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { Text, View, FlatList, Button } from 'react-native';
+import React from 'react'
+import { connect } from 'react-redux'
+import { Text, View, FlatList, Button } from 'react-native'
 
 class EventList extends React.Component {
   // constructor(props){
@@ -14,12 +14,12 @@ class EventList extends React.Component {
   // on create event, also upload to storage splash image
   // fetch event splash image
 
-  componentDidMount(){
-    const eventList = Object.entries(this.props.events);
+  componentDidMount () {
+    const eventList = Object.entries(this.props.events)
     eventList.forEach(event => {
-      console.log(event[0]);
-      console.log(event[1].eventName);
-      console.log(event[1].eventDescription);
+      console.log(event[0])
+      console.log(event[1].eventName)
+      console.log(event[1].eventDescription)
     })
     // this.setState((prevState) => {
     //   return { ...prevState, eventList, isReady: true }
@@ -28,12 +28,12 @@ class EventList extends React.Component {
 
   render () {
     return (
-      <View style={{flex:1, justifyContent:'center', alignContent:'center'}}>
-        <Button title={'State'} onPress={console.log(this.props.events)}/>
+      <View style={{ flex: 1, justifyContent: 'center', alignContent: 'center' }}>
+        <Button title="State" onPress={console.log(this.props.events)} />
         <Text>TODO: Event List</Text>
         {/* {
           this.state.isReady
-            ? <FlatList 
+            ? <FlatList
                 data={Object.entries(this.props.events)}
                 renderItem={(event) => {
                   return (
@@ -50,7 +50,7 @@ class EventList extends React.Component {
             : null
         } */}
       </View>
-    );
+    )
   }
 }
 
@@ -58,4 +58,4 @@ const mapStateToProps = (state) => {
   return { events: state.userReducer.events }
 }
 
-export default connect(mapStateToProps)(EventList);
+export default connect(mapStateToProps)(EventList)
