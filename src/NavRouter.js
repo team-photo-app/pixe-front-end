@@ -16,8 +16,15 @@ import MyEvents from './views/MyEvents/MyEvents.page'
 
 const AppNavigator = createDrawerNavigator(
   {
-    LoginView: { screen: LoginView },
-    SignUpView: { screen: SignUpView },
+    LoginView: { screen: LoginView,
+      navigationOptions: ({navigation}) => ({
+        drawerLockMode: 'locked-closed'
+      })
+    },
+    SignUpView: { screen: SignUpView,
+      navigationOptions: ({navigation}) => ({
+        drawerLockMode: 'locked-closed'
+      })},
     CameraPage: { screen: CameraPage },
     JoinEvent: { screen: JoinEvent },
     QR: { screen: QR },
