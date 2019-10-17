@@ -7,6 +7,7 @@ import {
   Icon
 } from "native-base";
 import styles from "./styles";
+import * as Permissions from 'expo-permissions';
 import * as ImagePicker from 'expo-image-picker';
 import firebase from '../../FB/firebase';
 import { Alert } from 'react-native';
@@ -17,6 +18,7 @@ class CameraFooter extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      hasCameraPermission: null,
     };
   }
   onChooseImagePress = async () => {
@@ -42,8 +44,18 @@ class CameraFooter extends Component {
     return ref.put(blob);
   };
 
+  async componentDidMount () {
+    const mediaLibrary = await Permissions.askAsync(Permissions.CAMERA_ROLL);
+    const camera = await Permissions.askAsync(Permissions.CAMERA);
+    const audio = await Permissions.askAsync(Permissions.AUDIO_RECORDING);
+    const hasCameraPermission = (camera.status === 'granted' && audio.status && mediaLibrary.status);
+
+    this.setState( { hasCameraPermission });
+  }
+
 
   render() {
+
     return (
         <Container >
           <Footer style={styles.footer} >
