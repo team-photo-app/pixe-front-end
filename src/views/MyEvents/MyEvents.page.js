@@ -11,7 +11,7 @@ import {
 import styles from './styles/styles';
 import styleTemplate from '../templates/styleTemplate'
 import { connect } from 'react-redux'
-import { View, Text, Image, ScrollView } from 'react-native'
+import { Image, ScrollView } from 'react-native'
 import { TouchableHighlight } from 'react-native-gesture-handler'
 
 class MyEvents extends React.Component {
