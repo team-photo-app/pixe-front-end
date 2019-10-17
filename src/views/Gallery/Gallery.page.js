@@ -1,12 +1,14 @@
 import React from 'react';
 import {Container, Content, Header, Footer, Icon, Button, Left, Right, Text} from 'native-base';
-import { View, FlatList } from 'react-native';
+import { View, FlatList, ScrollView, SafeAreaView, RefreshControl } from 'react-native';
 import firebase from '../../FB/firebase';
-import PixeHeader from '../Header/Header';
 import Picture from './components/Picture.component';
 import CameraFooter from '../Footer/Footer';
-import { Col, Row, Grid } from 'react-native-easy-grid';
 import styles from './styles/styles';
+import Constants from 'expo-constants';
+
+
+
 
 class Gallery extends React.Component {
   constructor(props){
@@ -14,13 +16,24 @@ class Gallery extends React.Component {
     this.state = {
       pictures: [],
       error: '',
-      ready: false
+      ready: false,
+      refreshing: false,
+
     }
+
   }
+
 
   componentDidMount(){
     this.getList();
   }
+
+  handleRefresh = () => {
+    this.setState( {refreshing: true, }, () => {
+      this.getList()
+    })
+  };
+
 
   getImage = (imageName) => {
     return firebase.storage().ref('pixe').child(`${imageName}`).getDownloadURL();
@@ -40,7 +53,7 @@ class Gallery extends React.Component {
       const objectifiedArray = urlArray.map((item) => {
         return { key: item, url: item };
       });
-      this.setState({ ...this.state, pictures: objectifiedArray, ready: true });
+      this.setState({ ...this.state, pictures: objectifiedArray, ready: true, refreshing: false });
     })
     .catch((error) => {
       console.log('ERROR:', error);
@@ -63,12 +76,14 @@ class Gallery extends React.Component {
               <Text>PixE</Text>
             </Right>
           </Header>
-
           { // if this.state.ready is true, which will only turn true when pictures are fetched, then display list
             this.state.ready
                 ? <FlatList
                     data={this.state.pictures}
+                    refreshing={this.state.refreshing}
+                    onRefresh={this.handleRefresh}
                     renderItem={(itemData) => {
+
                       return (
                           <View style={ styles.pictureWrapper }>
                           <Picture
