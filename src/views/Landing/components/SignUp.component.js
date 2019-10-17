@@ -35,7 +35,6 @@ class SignUp extends React.Component {
           placeholder='username'
           value={this.state.username}
           onChangeText={ (text) => this.handleChange('username', text) }
-          onSubmitEditing={this.handleSubmit}
         />
         <TextInput
           placeholder='password'

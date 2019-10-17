@@ -37,8 +37,6 @@ class App extends React.Component {
       this.state.isReady
         ? <Provider store={store}>
             <AppContainer />
-            {/*<Gallery />*/}
-            {/*<SignUp />*/}
           </Provider>
         : <AppLoading />
     );
