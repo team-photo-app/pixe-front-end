@@ -7,7 +7,6 @@ import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
 import AppContainer from './src/NavRouter'
 
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -30,8 +29,6 @@ class App extends React.Component {
       this.state.isReady
         ? <Provider store={store}>
             <AppContainer />
-            {/*<Gallery />*/}
-            {/*<SignUp />*/}
           </Provider>
         : <AppLoading />
     );
