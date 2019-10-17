@@ -1,6 +1,15 @@
 import React from 'react'
-import { View, Text } from 'native-base';
-
+import {
+  View,
+  Text,
+  Header,
+  Footer,
+  Content,
+  Container,
+  Button, Icon, Left, Right,
+} from 'native-base'
+import styles from './styles/styles';
+import styleTemplate from '../templates/styleTemplate'
 
 class MyEvents extends React.Component {
   constructor(props) {
@@ -12,11 +21,32 @@ class MyEvents extends React.Component {
 
   render() {
     return (
-       <View>
-         <Text>
-           My EVENTS
-         </Text>
-       </View>
+      <Container>
+        <Header
+          style={styleTemplate.header}
+        >
+          <Left>
+            <Button transparent onPress={() => this.props.navigation.openDrawer()}>
+              <Icon
+                style={styleTemplate.menu}
+                name="menu" />
+            </Button>
+          </Left>
+          <Right>
+            <Text>PixE</Text>
+          </Right>
+        </Header>
+        <Content>
+           <View style={styles.alignCenter}>
+             <Text>
+               My EVENTS
+             </Text>
+           </View>
+        </Content>
+        <Footer
+          style={styleTemplate.footer}
+        />
+      </Container>
     );
   }
 }

@@ -1,11 +1,10 @@
-const React = require("react-native");
+import { StyleSheet, Dimensions } from 'react-native';
 
-const { StyleSheet } = React;
+const { width: winWidth, height: winHeight } = Dimensions.get('window');
+
 
 export default {
-  container: {
-    backgroundColor: "#FFF"
-  },
+
   text: {
     alignSelf: "center",
     marginBottom: 7
@@ -18,10 +17,4 @@ export default {
     alignItems: 'center',
     justifyContent: 'center'
   },
-  pixeLogo: {
-    color: "black",
-  },
-  menu: {
-    color: "black"
-  }
-};
+}

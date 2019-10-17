@@ -5,6 +5,7 @@ import firebase from '../../FB/firebase';
 import Picture from './components/Picture.component';
 import CameraFooter from '../Footer/Footer';
 import styles from './styles/styles';
+import styleTemplate from '../templates/styleTemplate'
 
 class Gallery extends React.Component {
   constructor(props){
@@ -54,12 +55,12 @@ class Gallery extends React.Component {
   render () {
     // const { navigate } = this.props.navigation;
     return (
-        <Container>
-          <Header style={styles.header}>
+        <Container style={styleTemplate.container}>
+          <Header style={styleTemplate.header}>
             <Left>
             <Button transparent onPress={() => this.props.navigation.openDrawer()}>
               <Icon
-                style={{color: 'black'}}
+                style={styleTemplate.menu}
                 name="menu" />
             </Button>
             </Left>
@@ -86,7 +87,7 @@ class Gallery extends React.Component {
                   />
                 : null
           }
-          <Footer style={styles.footer}>
+          <Footer style={styleTemplate.footer}>
             <CameraFooter/>
           </Footer>
         </Container>
