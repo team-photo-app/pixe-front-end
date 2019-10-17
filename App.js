@@ -12,15 +12,7 @@ class App extends React.Component {
     super(props)
     this.state = {
       isReady: false,
-      isAuthenticated: false
     }
-
-    if (!firebase.apps.length) { firebase.initializeApp(superhotbase) }
-    firebase.auth().onAuthStateChanged(this.onAuthStateChanged)
-  }
-
-  onAuthStateChanged = (user) => {
-    this.setState({ isAuthenticated: !!user })
   }
   
   async componentDidMount() {

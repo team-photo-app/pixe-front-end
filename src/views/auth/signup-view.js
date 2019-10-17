@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, TextInput, Button, Alert } from 'react-native'
-import { StackActions, NavigationActions } from 'react-navigation'
-import * as firebase from 'firebase'
+// import { StackActions, NavigationActions } from 'react-navigation'
+import firebase from '../../FB/firebase'
 
 export default class SignUpView extends React.Component {
   constructor(props) {
@@ -23,11 +23,6 @@ export default class SignUpView extends React.Component {
   }
 
   onBackToLoginPress = () => {
-    var navActions = StackActions.reset({
-      index: 0,
-      action: [NavigationActions.navigate({ routeName: 'LogIn' })]
-    })
-
     this.props.navigation.navigate('LoginView')
   }
 
