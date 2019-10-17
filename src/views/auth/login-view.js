@@ -16,10 +16,13 @@ export default class LoginView extends React.Component {
     firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
       .then(() => {
         firebase.auth().onAuthStateChanged(user => {
-          console.log(user)
-          this.props.navigation.navigate('Gallery')
+          // console.log(user)
+          this.props.navigation.navigate('EventList')
         })
-      }).catch((error) => this.props.navigation.navigate('SignUpView'))
+      })
+      .catch(() => {
+        this.props.navigation.navigate('SignUpView')
+      })
   }
 
   handleOnCreateAccountPress = () => {
