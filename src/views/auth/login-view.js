@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { SIGN_IN_SUCCESS } from '../../store/actions/userActions'
 import PropTypes from 'prop-types'
-import { View, Text, TextInput, Button, Image } from 'react-native'
+import { View, Text, TextInput, Button, Image, KeyboardAvoidingView } from 'react-native'
 import { StackActions, NavigationActions } from 'react-navigation'
 import firebase from '../../FB/firebase'
 import styleTemplate from '../templates/styleTemplate'
@@ -23,7 +23,7 @@ class LoginView extends React.Component {
   handleOnLoginPress = () => {
     firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
       .then(() => {
-        firebase.auth().onAuthStateChanged(user => {
+        firebase.auth().onAuthStateChanged(() => {
           this.props.navigation.navigate('MyEvents')
         })
       })
