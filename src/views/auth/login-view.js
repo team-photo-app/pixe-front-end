@@ -49,58 +49,48 @@ export default class LoginView extends React.Component {
           </View>
 
         </Header>
-        <Content>
-          {/*  <Content*/}
-          {/*    contentContainerStyle={styleTemplate.alignCenter}*/}
-          {/*  >*/}
-          {/*    <TextInput*/}
-          {/*      title='Enter Username'*/}
-          {/*      value={this.state.email}*/}
-          {/*      onChangeText={(text) => { this.setState({ email: text }) }}*/}
-          {/*      placeholder='E-Mail'*/}
-          {/*      keyboardType='email-address' // recognizes if email is not properly formatted*/}
-          {/*      autoCapitalize='none' // will capitalize every first letter if not turned off*/}
-          {/*      autoCorrect={false}*/}
-          {/*    />*/}
-          {/*    <TextInput*/}
-          {/*      title='Enter Password'*/}
-          {/*      value={this.state.password}*/}
-          {/*      onChangeText={(text) => { this.setState({ password: text }) }}*/}
-          {/*      placeholder='Enter Password'*/}
-          {/*      secureTextEntry // creates fuzz or stars to obscure pass entry*/}
-          {/*      autoCapitalize='none'*/}
-          {/*      autoCorrect={false}*/}
-          {/*    />*/}
+            <Content
+              contentContainerStyle={styleTemplate.login}
+            >
+              <TextInput
+                title='Enter Username'
+                value={this.state.email}
+                onChangeText={(text) => { this.setState({ email: text }) }}
+                placeholder='E-Mail'
+                keyboardType='email-address' // recognizes if email is not properly formatted
+                autoCapitalize='none' // will capitalize every first letter if not turned off
+                autoCorrect={false}
+              />
+              <TextInput
+                title='Enter Password'
+                value={this.state.password}
+                onChangeText={(text) => { this.setState({ password: text }) }}
+                placeholder='Enter Password'
+                secureTextEntry // creates fuzz or stars to obscure pass entry
+                autoCapitalize='none'
+                autoCorrect={false}
+              />
+
+          <Button title='Login Testuser' onPress={() => { this.setState({ email: 'testuser123@gmail.com', password: 'testing' }) }} />
         </Content>
-
-
-        <Content
-
-
-          contentContainerStyle={styles.bottom}
+        <Footer
+          style={styles.footer}
         >
-
-
           <Button
             contentContainerStyle={styles.authButtons}
             title='Log In'
             onPress={this.handleOnLoginPress}
           />
-
           <Button
             contentContainerStyle={styles.authButtons}
             title='Create New Account'
             onPress={this.handleOnCreateAccountPress}
           />
-
-
-          {/*<Button*/}
-          {/*  title='Forgot Password?'*/}
-          {/*  onPress={this.handleOnForgotPasswordPress}*/}
-          {/*/>*/}
-
-          {/*<Button title='Login Testuser' onPress={() => { this.setState({ email: 'testuser123@gmail.com', password: 'testing' }) }} />*/}
-        </Content>
+          <Button
+            title='Forgot Password?'
+            onPress={this.handleOnForgotPasswordPress}
+          />
+        </Footer>
       </Container>
     )
   }
