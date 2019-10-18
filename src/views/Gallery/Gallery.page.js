@@ -1,10 +1,10 @@
-import React from 'react';
-import {Container, Content, Header, Footer, Icon, Button, Left, Right, Text} from 'native-base';
-import { View, FlatList } from 'react-native';
-import firebase from '../../FB/firebase';
-import Picture from './components/Picture.component';
-import CameraFooter from '../Footer/Footer';
-import styles from './styles/styles';
+import React from 'react'
+import { Container, Header, Footer, Icon, Button, Left, Right, Text } from 'native-base'
+import { View, FlatList } from 'react-native'
+import firebase from '../../FB/firebase'
+import Picture from './components/Picture.component'
+import CameraFooter from '../Footer/Footer'
+import styles from './styles/styles'
 import styleTemplate from '../templates/styleTemplate'
 
 class Gallery extends React.Component {
@@ -58,34 +58,35 @@ class Gallery extends React.Component {
       <Container style={styles.container}>
         <Header style={styleTemplate.header}>
           <Left>
-          <Button transparent onPress={() => this.props.navigation.openDrawer()}>
-            <Icon style={styleTemplate.menu} name="menu" />
-          </Button>
+            <Button transparent onPress={() => this.props.navigation.openDrawer()}>
+              <Icon style={styleTemplate.menu} name='menu' />
+            </Button>
           </Left>
           <Right>
             <Text>PixE</Text>
           </Right>
         </Header>
-        { // if this.state.ready is true, which will only turn true when pictures are fetched, then display list
+        {// if this.state.ready is true, which will only turn true when pictures are fetched, then display list
           this.state.ready
-              ? <FlatList
-                  data={this.state.pictures}
-                  refreshing={this.state.refreshing}
-                  onRefresh={this.handleRefresh}
-                  renderItem={(itemData) => {
-                    return (
-                        <View style={ styles.pictureWrapper }>
-                          <Picture url={itemData.item.url} />
-                        </View>
-                    );
-                  }}
-                  numColumns={3}
-                  keyExtractor={(item) => item.key}
-                />
-              : null
+            ? <FlatList
+              data={this.state.pictures}
+              refreshing={this.state.refreshing}
+              onRefresh={this.handleRefresh}
+              renderItem={(itemData) => {
+                return (
+                  <View style={styles.pictureWrapper}>
+                    <Picture url={itemData.item.url} />
+                  </View>
+                )
+              }}
+              numColumns={3}
+              keyExtractor={(item) => item.key}
+            // eslint-disable-next-line react/jsx-closing-bracket-location
+            />
+            : null
         }
         <Footer style={styleTemplate.footer}>
-          <CameraFooter/>
+          <CameraFooter />
         </Footer>
       </Container>
     )

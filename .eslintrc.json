@@ -7,35 +7,34 @@
     },
     "sourceType": "module"
   },
-
   "settings": {
     "react": {
       "version": "detect"
     }
   },
-
   "plugins": [
     "react",
     "react-native"
   ],
-
   "extends": [
-    "standard", "standard-jsx"
+    "standard",
+    "standard-jsx"
   ],
-
   "rules": {
-    "react/jsx-no-bind": ["error", {
-      "allowArrowFunctions": true,
-      "allowBind": false,
-      "ignoreRefs": true
-    }],
+    "react/jsx-no-bind": [
+      "error",
+      {
+        "allowArrowFunctions": true,
+        "allowBind": true,
+        "ignoreRefs": true
+      }
+    ],
     "react/no-did-update-set-state": "error",
     "react/no-unknown-property": "error",
     "react/no-unused-prop-types": "error",
     "react/prop-types": "error",
     "react/react-in-jsx-scope": "error"
   },
-  
   "env": {
     "react-native/react-native": true
   }
