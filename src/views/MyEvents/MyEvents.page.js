@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable space-before-function-paren */
 import React from 'react'
 import {
   View,
@@ -6,7 +8,7 @@ import {
   Footer,
   Content,
   Container,
-  Button, Icon, Left, Right,
+  Button, Icon, Left, Right
 } from 'native-base'
 import styles from './styles/styles'
 import styleTemplate from '../templates/styleTemplate'
@@ -15,7 +17,7 @@ import { Image, ScrollView } from 'react-native'
 import { TouchableHighlight } from 'react-native-gesture-handler'
 
 class MyEvents extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       eventList: [],
@@ -23,12 +25,12 @@ class MyEvents extends React.Component {
     }
   }
 
-  componentDidMount () {
+  componentDidMount() {
     const eventList = Object.entries(this.props.events)
     this.setState({ ...this.state, eventList, isReady: true })
   }
 
-  render () {
+  render() {
     return (
       <Container>
         <Header style={styleTemplate.header}>
@@ -36,7 +38,8 @@ class MyEvents extends React.Component {
             <Button transparent onPress={() => this.props.navigation.openDrawer()}>
               <Icon
                 style={styleTemplate.menu}
-                name="menu" />
+                name='menu'
+              />
             </Button>
           </Left>
           <Right>
@@ -100,10 +103,9 @@ class MyEvents extends React.Component {
             </View>
           </ScrollView>
         </Content>
-        <Footer style={styleTemplate.footer}
-        />
+        <Footer style={styleTemplate.footer} />
       </Container>
-    );
+    )
   }
 }
 

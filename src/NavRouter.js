@@ -9,29 +9,36 @@ import Gallery from './views/Gallery/Gallery.page'
 import SideBar from './views/SideBar/SideBar.component'
 import JoinEvent from './views/JoinEvent/JoinEvent'
 import EventCreate from './views/EventCreate/EventCreate.page'
-// import EventList from './views/EventList/EventList.page'
+import EventList from './views/EventList/EventList.page'
 // import EventJoin from './views/EventJoin/EventJoin.page';
 // import Landing from './views/Landing/Landing.page';
 import MyEvents from './views/MyEvents/MyEvents.page'
 
 const AppNavigator = createDrawerNavigator(
   {
-    LoginView: { screen: LoginView },
-    SignUpView: { screen: SignUpView },
+    LoginView: { screen: LoginView,
+      navigationOptions: ({navigation}) => ({
+        drawerLockMode: 'locked-closed'
+      })
+    },
+    SignUpView: { screen: SignUpView,
+      navigationOptions: ({navigation}) => ({
+        drawerLockMode: 'locked-closed'
+      })},
     CameraPage: { screen: CameraPage },
     JoinEvent: { screen: JoinEvent },
     QR: { screen: QR },
     EventCreate: { screen: EventCreate },
     MyEvents: { screen: MyEvents },
-    Gallery: { screen: Gallery }
-    // EventList: { screen: EventList },
+    Gallery: { screen: Gallery },
+    EventList: { screen: EventList }
     // Landing: {screen: Landing},
   }, {
-    initialRouteName: 'LoginView',
-    drawerWidth: 300,
-    contentOptions: {},
-    contentComponent: props => <SideBar {...props} />
-  }
+  initialRouteName: 'LoginView',
+  drawerWidth: 300,
+  contentOptions: {},
+  contentComponent: props => <SideBar {...props} />
+}
 )
 
 const defaultStateForAppNav = AppNavigator.router.getStateForAction

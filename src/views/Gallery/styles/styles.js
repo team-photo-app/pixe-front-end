@@ -23,6 +23,19 @@ export default {
     flex: 1,
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    height: 100,
+    width: 100,
+    marginLeft: 2,
+    marginBottom: 20,
   },
+  lightBox: {
+    backgroundColor: 'black',
+    opacity: .5,
+  },
+
+  contain: {
+    flex: 1,
+    height: 150,
+  }
 }
