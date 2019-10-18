@@ -59,18 +59,12 @@ class QR extends React.Component {
 
     return (
       <View style={styles.alignCenter}>
-
         <BarCodeScanner
           onBarCodeScanned={scanned ? undefined : this.handleBarCodeScanned}
           style={StyleSheet.absoluteFillObject}
-        >
-          {/*  <View style={styles.icon}> */}
-          {/*  <Icon style={{color: '#fff'}} name="ios-arrow-back" onPress={this.handleBackActions}/> */}
-          {/* </View>*/}
-        </BarCodeScanner>
-
+        />
         {scanned && (
-          <Button title="Scan your Code" onPress={() => this.setState({ scanned: false })} />
+          <Button title='Scan your Code' onPress={() => this.setState({ scanned: false })} />
         )}
       </View>
     )

@@ -68,7 +68,7 @@ class Gallery extends React.Component {
   render () {
     // const { navigate } = this.props.navigation;
     return (
-      <Container style={styleTemplate.container}>
+      <Container style={styles.container}>
         <Header style={styleTemplate.header}>
           <Left>
             <Button transparent onPress={() => this.props.navigation.openDrawer()}>

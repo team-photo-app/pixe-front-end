@@ -5,6 +5,13 @@ export const SIGN_UP_SUCCESS = (payload) => {
   }
 }
 
+export const SIGN_IN_SUCCESS = (payload) => {
+  return {
+    type: 'SIGN_IN_SUCCESS',
+    payload: payload
+  }
+}
+
 export const EVENTS_LIST_ADD = (payload) => {
   return {
     type: 'EVENTS_LIST_ADD',

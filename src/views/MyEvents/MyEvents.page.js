@@ -15,7 +15,7 @@ import { Image, ScrollView } from 'react-native'
 import { TouchableHighlight } from 'react-native-gesture-handler'
 
 class MyEvents extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       eventList: [],
@@ -23,7 +23,7 @@ class MyEvents extends React.Component {
     }
   }
 
-  componentDidMount() {
+  componentDidMount () {
     const eventList = Object.entries(this.props.events)
     this.setState({ ...this.state, eventList, isReady: true })
   }
@@ -46,7 +46,6 @@ class MyEvents extends React.Component {
         </Header>
         <Content>
           <ScrollView>
-            {this.state.isReady ? console.log(this.state.eventList[1][0]) : null}
             <Text>My EVENTS</Text>
             <View style={{ margin: 10 }}>
               <Text onPress={() => { this.props.navigation.navigate('Gallery') }}>Birthday Party</Text>

@@ -123,7 +123,6 @@ class EventCreate extends React.Component {
                 />
               </View>
             )}
-          <Button title='Event State' onPress={() => { console.log(this.props.state.events) }} />
         </Content>
         <Footer style={styleTemplate.footer} />
       </Container>

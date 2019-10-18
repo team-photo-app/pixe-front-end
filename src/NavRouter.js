@@ -3,6 +3,7 @@ import { createDrawerNavigator, createStackNavigator, createAppContainer, withNa
 // import { Root } from 'native-base'
 import LoginView from './views/auth/login-view'
 import SignUpView from './views/auth/signup-view.js'
+import ForgotPasswordView from './views/auth/forgot-password'
 import CameraPage from './views/Camera/Camera.page.js'
 import QR from './views/JoinEvent/components/QR.component'
 import Gallery from './views/Gallery/Gallery.page'
@@ -16,15 +17,19 @@ import MyEvents from './views/MyEvents/MyEvents.page'
 
 const AppNavigator = createDrawerNavigator(
   {
-    LoginView: { screen: LoginView,
+    LoginView: {
+      screen: LoginView,
       navigationOptions: ({navigation}) => ({
         drawerLockMode: 'locked-closed'
       })
     },
-    SignUpView: { screen: SignUpView,
-      navigationOptions: ({navigation}) => ({
+    SignUpView: {
+      screen: SignUpView,
+      navigationOptions: ({ navigation }) => ({
         drawerLockMode: 'locked-closed'
-      })},
+      })
+    },
+    ForgotPasswordView: { screen: ForgotPasswordView },
     CameraPage: { screen: CameraPage },
     JoinEvent: { screen: JoinEvent },
     QR: { screen: QR },
@@ -34,11 +39,11 @@ const AppNavigator = createDrawerNavigator(
     EventList: { screen: EventList }
     // Landing: {screen: Landing},
   }, {
-  initialRouteName: 'LoginView',
-  drawerWidth: 300,
-  contentOptions: {},
-  contentComponent: props => <SideBar {...props} />
-}
+    initialRouteName: 'LoginView',
+    drawerWidth: 300,
+    contentOptions: {},
+    contentComponent: props => <SideBar {...props} />
+  }
 )
 
 const defaultStateForAppNav = AppNavigator.router.getStateForAction
