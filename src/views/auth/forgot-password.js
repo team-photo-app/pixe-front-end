@@ -1,7 +1,10 @@
 import React from 'react'
-import { View, Text, TextInput, Button, Alert } from 'react-native'
+import { View, Text, TextInput, Button, Alert, Image } from 'react-native'
 import { StackActions, NavigationActions } from 'react-navigation'
 import * as firebase from 'firebase'
+import { Container, Content, Footer, Header } from 'native-base'
+import styleTemplate from '../templates/styleTemplate'
+import styles from './styles/styles'
 export default class ForgotPasswordView extends React.Component {
   constructor(props) {
     super(props)
@@ -30,22 +33,67 @@ export default class ForgotPasswordView extends React.Component {
   }
 
   render() {
+
     return (
-      <View style={{ padding: 50, alighItems: 'center' }}>
+      <Container
+        style={styleTemplate.container}
+      >
+        <Header>
+          <View
+            style={styles.pixiLogo}
+          >
+            <Image
+              source={require('../../../assets/pixe.png')}
+            />
 
-        <Text>Forgot Password</Text>
-        <TextInput
-          style={{ width: 200, height: 40, borderwidth: 1 }}
-          value={this.state.email}
-          onChangeText={(text) => { this.setState({ email: text }) }}
-          placeholder='Your Email address'
-          autoCapitalize='none'
-          autoCorrect={false}
-        />
-        <Button title='Reset Password' onPress={this.handleOnResetPasswordPress} />
-        <Button title='Return to Login' onPress={this.handleOnBackToLoginPress} />
+          </View>
 
-      </View>
+        </Header>
+        <Content
+          contentContainerStyle={styleTemplate.bottom}
+        >
+
+
+
+        </Content>
+        <Footer
+          style={styles.footer}
+        >
+          <Content
+            contentContainerStyle={styles.authBox}
+          >
+            <Text
+              style={{color: '#D9D9D9', marginBottom: 5}}
+            >Where is my mind.. where is my mind...?</Text>
+            <TextInput
+              value={this.state.email}
+              onChangeText={(text) => { this.setState({ email: text }) }}
+              placeholder='Your Email address'
+              autoCapitalize='none'
+              autoCorrect={false}
+            />
+
+
+            <Content
+              style={{bottom: 0, marginTop: 110 }}>
+              <Button
+                style={styles.authButtons}
+                title='Reset Password'
+                onPress={this.handleOnResetPasswordPress} />
+
+              <Button
+              style={styles.forgot}
+              title='Return to Login'
+              onPress={this.handleOnBackToLoginPress} />
+          </Content>
+
+        </Content>
+
+
+        </Footer>
+      </Container>
+
+
     )
   }
 }

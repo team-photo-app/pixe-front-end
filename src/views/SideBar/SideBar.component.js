@@ -1,5 +1,5 @@
 import React from 'react'
-
+import styles from './styles'
 import {
   Content,
   Text,
@@ -8,20 +8,22 @@ import {
   Icon,
   Container,
   Left,
-  Right
+  Right,
+  View
   // Badge
 } from 'native-base'
+import { Image } from 'react-native'
 
 const routeData = [
-  {
-    name: 'Gallery',
-    route: 'Gallery',
-    icon: 'albums'
-  },
+  // {
+  //   name: 'Gallery',
+  //   route: 'Gallery',
+  //   icon: 'albums'
+  // },
   {
     name: 'Join Event',
     route: 'JoinEvent',
-    icon: 'flower'
+    icon: 'ios-color-wand'
   },
   {
     name: 'My Events',
@@ -31,12 +33,7 @@ const routeData = [
   {
     name: 'Create Event',
     route: 'EventCreate',
-    icon: 'arrow-down'
-  },
-  {
-    name: 'Create Account',
-    route: 'SignUpView',
-    icon: 'flower'
+    icon: 'ios-megaphone'
   },
   {
     name: 'Log Out',
@@ -59,10 +56,27 @@ class SideBar extends React.Component {
           <Right>
             <Icon
               onPress={() => this.props.navigation.closeDrawer()}
-              name='arrow-back'
+              name='ios-close'
+              style={{color:'#595959'}}
             />
+            <View
+            style={styles.alignCenter}>
+            <Image
+              style={styles.pixiBreak}
+              source={require('../../../assets/pixe_md.png')}
+            />
+            <Image
+              style={styles.userProfile}
+              source={require('../../../assets/kim.png')}
+            />
+            <Text
+              style={{color:'#595959', marginBottom: 50}}
+            >
+            Kim D.</Text>
+            </View>
           </Right>
           <List
+
             keyExtractor={(item, idx) => idx.toString()}
             dataArray={routeData}
             renderRow={data =>

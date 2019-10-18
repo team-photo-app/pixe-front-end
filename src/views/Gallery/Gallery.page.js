@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, Header, Footer, Icon, Button, Left, Right, Text } from 'native-base'
-import { View, FlatList } from 'react-native'
+import { View, FlatList, Image } from 'react-native'
 import firebase from '../../FB/firebase'
 import Picture from './components/Picture.component'
 import CameraFooter from '../Footer/Footer'
@@ -63,7 +63,10 @@ class Gallery extends React.Component {
             </Button>
           </Left>
           <Right>
-            <Text>PixE</Text>
+            <Image
+              style={{marginBottom: 8}}
+              source={require('../../../assets/pixe_sm.png')}
+            />
           </Right>
         </Header>
         {// if this.state.ready is true, which will only turn true when pictures are fetched, then display list

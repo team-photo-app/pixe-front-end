@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { SIGN_IN_SUCCESS } from '../../store/actions/userActions'
 import PropTypes from 'prop-types'
-import { View, Text, TextInput, Button } from 'react-native'
+import { View, Text, TextInput, Button, Image } from 'react-native'
 import { StackActions, NavigationActions } from 'react-navigation'
 import firebase from '../../FB/firebase'
 import styleTemplate from '../templates/styleTemplate'
@@ -58,36 +58,43 @@ class LoginView extends React.Component {
             <Image
               source={require('../../../assets/pixe.png')}
             />
+
           </View>
 
         </Header>
             <Content
-              contentContainerStyle={styleTemplate.login}
+              contentContainerStyle={styleTemplate.bottom}
             >
-              <TextInput
-                title='Enter Username'
-                value={this.state.email}
-                onChangeText={(text) => { this.setState({ email: text }) }}
-                placeholder='E-Mail'
-                keyboardType='email-address' // recognizes if email is not properly formatted
-                autoCapitalize='none' // will capitalize every first letter if not turned off
-                autoCorrect={false}
-              />
-              <TextInput
-                title='Enter Password'
-                value={this.state.password}
-                onChangeText={(text) => { this.setState({ password: text }) }}
-                placeholder='Enter Password'
-                secureTextEntry // creates fuzz or stars to obscure pass entry
-                autoCapitalize='none'
-                autoCorrect={false}
-              />
 
-          <Button title='Login Testuser' onPress={() => { this.setState({ email: 'testuser123@gmail.com', password: 'testing' }) }} />
-        </Content>
+            </Content>
         <Footer
           style={styles.footer}
         >
+          <Content
+            contentContainerStyle={styles.authBox}
+          >
+          <TextInput
+            style={{marginBottom: 12, color: '#A6A6A6'}}
+            title='Enter Username'
+            value={this.state.email}
+            onChangeText={(text) => { this.setState({ email: text }) }}
+            placeholder='E-Mail'
+            keyboardType='email-address' // recognizes if email is not properly formatted
+            autoCapitalize='none' // will capitalize every first letter if not turned off
+            autoCorrect={false}
+          />
+          <TextInput
+            style={{color: '#A6A6A6'}}
+            title='Enter Password'
+            value={this.state.password}
+            onChangeText={(text) => { this.setState({ password: text }) }}
+            placeholder='Enter Password'
+            secureTextEntry // creates fuzz or stars to obscure pass entry
+            autoCapitalize='none'
+            autoCorrect={false}
+          />
+          </Content>
+
           <Button
             contentContainerStyle={styles.authButtons}
             title='Log In'
@@ -98,14 +105,16 @@ class LoginView extends React.Component {
             title='Create New Account'
             onPress={this.handleOnCreateAccountPress}
           />
-          <Button
-            title='Forgot Password?'
+          <Text
+            style={styles.forgot}
             onPress={this.handleOnForgotPasswordPress}
-          />
+          >
+            Forgot Password?
+          </Text>
         </Footer>
       </Container>
 
-    
+
     )
   }
 }

@@ -67,4 +67,5 @@ export default {
     bottom: 50,
     backgroundColor: '#3DD1F2',
   },
+
 }

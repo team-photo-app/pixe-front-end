@@ -16,7 +16,7 @@ class QRCodeComp extends React.Component {
 
   render () {
     return (
-      <QRCode value={this.generateQRData()} size={300} />
+      <QRCode value={this.generateQRData()} size={100} />
     )
   }
 }

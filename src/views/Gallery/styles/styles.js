@@ -22,6 +22,8 @@ export default {
     width: 100,
     marginLeft: 2,
     marginBottom: 20,
+    borderRadius: 5,
+
   },
 
   pictureWrapper: {
@@ -32,7 +34,13 @@ export default {
     height: 100,
     width: 100,
     marginLeft: 2,
+    marginTop: 20,
     marginBottom: 20,
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 2},
+    shadowOpacity: 0.3,
+    shadowRadius: 2,
+    elevation: 1,
   },
   lightBox: {
     backgroundColor: 'black',

@@ -4,7 +4,7 @@ const { StyleSheet } = React;
 
 export default {
   container: {
-    backgroundColor: "#FFF"
+    backgroundColor: "#F7F8FC"
   },
   text: {
     alignSelf: "center",
