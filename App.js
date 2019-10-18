@@ -26,17 +26,11 @@ class App extends React.Component {
   render () {
     return (
       this.state.isReady
-<<<<<<< HEAD
-        ? <Provider store={store}>
-          <AppContainer />
-        </Provider>
-=======
         ? (
           <Provider store={store}>
             <AppContainer />
           </Provider>
         )
->>>>>>> 0bcecfc3b904675367ad684631aa56feec1b9dde
         : <AppLoading />
     )
   }

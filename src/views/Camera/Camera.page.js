@@ -1,9 +1,5 @@
 import React from 'react'
-<<<<<<< HEAD
-import { Icon, View, Footer, Container } from 'native-base'
-=======
 import { Icon, Footer, Container } from 'native-base'
->>>>>>> 0bcecfc3b904675367ad684631aa56feec1b9dde
 import * as ImagePicker from 'expo-image-picker'
 import firebase from '../../FB/firebase'
 import { Alert } from 'react-native'

@@ -8,6 +8,7 @@ import {
   Container,
   Button, Icon, Left, Right
 } from 'native-base'
+import styles from './styles/styles'
 import styleTemplate from '../templates/styleTemplate'
 import { connect } from 'react-redux'
 import { Image, ScrollView } from 'react-native'
@@ -106,11 +107,6 @@ class MyEvents extends React.Component {
   }
 }
 
-<<<<<<< HEAD
-MyEvents.propTypes = {}
-
-export default MyEvents
-=======
 // MyEvents.propTypes = {}
 
 const mapStateToProps = (state) => {
@@ -118,4 +114,3 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps)(MyEvents)
->>>>>>> 0bcecfc3b904675367ad684631aa56feec1b9dde

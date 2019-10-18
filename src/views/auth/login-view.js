@@ -82,11 +82,7 @@ export default class LoginView extends React.Component {
           onPress={this.handleOnForgotPasswordPress}
         />
 
-<<<<<<< HEAD
-        <Button title="Login Testuser" onPress={() => { this.setState({ email: 'testuser123@gmail.com', password: 'testing' }) }} />
-=======
         <Button title='Login Testuser' onPress={() => { this.setState({ email: 'testuser123@gmail.com', password: 'testing' }) }} />
->>>>>>> 0bcecfc3b904675367ad684631aa56feec1b9dde
 
       </View>
     )
