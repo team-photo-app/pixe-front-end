@@ -25,7 +25,7 @@ const routeData = [
   },
   {
     name: 'My Events',
-    route: 'MyEvents',
+    route: 'MyEvents', // MyEvents
     icon: 'pizza'
   },
   {
