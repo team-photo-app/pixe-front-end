@@ -11,6 +11,11 @@ export default {
     alignItems: 'flex-end',
     justifyContent: 'center'
   },
+  container: {
+    flex: 1,
+    backgroundColor: "#F7F8FC",
+    padding: 0,
+  },
 
   pictureSize: {
     height: 100,
@@ -33,9 +38,4 @@ export default {
     backgroundColor: 'black',
     opacity: .5,
   },
-
-  contain: {
-    flex: 1,
-    height: 150,
-  }
 }

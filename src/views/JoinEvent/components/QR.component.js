@@ -4,7 +4,7 @@ import { Text, View, StyleSheet, Button, Alert } from 'react-native';
 import { Icon } from 'native-base'
 import * as Permissions from 'expo-permissions';
 import { BarCodeScanner} from 'expo-barcode-scanner';
-import styles from '../../Camera/styles/camera-toolbar-styles';
+import styles from '../styles/styles'
 import { EVENTS_LIST_ADD } from '../../../store/actions/userActions';
 import { StackActions} from 'react-navigation';
 
@@ -53,16 +53,13 @@ class QR extends React.Component {
     }
 
     return (
+
       <View style={ styles.alignCenter }>
-
-
         <BarCodeScanner
           onBarCodeScanned={ scanned ? undefined : this.handleBarCodeScanned }
           style={ StyleSheet.absoluteFillObject }
         >
-        {/*  <View style={styles.icon}>*/}
-        {/*  <Icon style={{color: '#fff'}} name="ios-arrow-back" onPress={this.handleBackActions}/>*/}
-        {/*</View>*/}
+
         </BarCodeScanner>
 
         { scanned && (
