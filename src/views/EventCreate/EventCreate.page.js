@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { View, TextInput, Button, Alert } from 'react-native'
+import { View, TextInput, Button, Alert, Image } from 'react-native'
 import uuid from 'uuid/v4'
 import QRCodeComp from './components/QRCodeComp.component'
 import { EVENTS_LIST_ADD } from '../../store/actions/userActions'
@@ -57,14 +57,19 @@ class EventCreate extends React.Component {
 
   handleQR = () => {
     return (
-      <Content>
-        <View style={{ margin: 20, borderWidth: 1, borderColor: 'black' }}>
+      <Content
+        style={{backgroundColor: "#F7F8FC"}}
+      >
+
+        <View style={styles.codeWrapper}>
+          <View>
+            <Icon name="ios-checkmark-circle-outline" title='OK' onPress={() => this.setState({ id: '', eventName: '', eventDescription: '', isFormFilled: false })} />
+          </View>
           <QRCodeComp
             eventID={this.state.id}
             eventName={this.state.eventName}
             eventDescription={this.state.eventDescription}
           />
-          <Button title='OK' onPress={() => this.setState({ id: '', eventName: '', eventDescription: '', isFormFilled: false })} />
         </View>
       </Content>
     )
@@ -72,7 +77,9 @@ class EventCreate extends React.Component {
 
   render () {
     return (
-      <Container>
+      <Container
+        style={{backgroundColor: "#F7F8FC"}}
+      >
         <Header style={styleTemplate.header}>
           <Left>
             <Icon
@@ -82,32 +89,67 @@ class EventCreate extends React.Component {
             />
           </Left>
           <Right>
-            <Text>PixE</Text>
+            <Image
+              style={{marginBottom: 8}}
+              source={require('../../../assets/pixe_sm.png')}
+            />
           </Right>
         </Header>
-        <Content contentContainerStyle={{ flex: 1, justifyContent: 'center', alignContent: 'center' }}>
+        <Content
+          contentContainerStyle={styles.container}
+        >
+        <Image
+          source={require('../../../assets/werespan.jpg')}
+          style={styles.eventPhotos}
+          />
+          <Left>
+            <Icon
+              name='md-add-circle-outline'
+            />
+          </Left>
+
+          <TextInput
+            style={styles.mockDescribe}
+            placeholder='Describe your event...'
+          />
+        </Content>
+        <Content contentContainerStyle={{ flex: 1, justifyContent: 'center' }}>
           {this.state.isFormFilled
             ? this.handleQR()
             : (
-              <View>
+              <View
+                style={styles.eventBox}
+              >
+                <Text
+                  style={styles.createEventText}
+                  >
+                  Enter your event information:
+                </Text>
+
                 <TextInput
+                  style={styles.spacer}
                   placeholder='Enter event name'
                   value={this.state.eventName}
                   onChangeText={(text) => this.handleChange('eventName', text)}
                 />
                 <TextInput
+                  style={styles.spacer}
                   placeholder='Enter event description'
                   value={this.state.eventDescription}
                   onChangeText={(text) => this.handleChange('eventDescription', text)}
                 />
-                <Button
-                  style={styles.submit}
-                  title='Submit' onPress={this.handleSubmit}
-                />
+
               </View>
             )}
         </Content>
-        <Footer style={styleTemplate.footer} />
+        <Footer style={styleTemplate.footer} >
+          <Icon
+            className="submit"
+            name="ios-rocket"
+            style={styles.submitButton }
+            title='Submit' onPress={this.handleSubmit}
+          />
+        </Footer>
       </Container>
     )
   }

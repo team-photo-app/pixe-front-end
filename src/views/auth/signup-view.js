@@ -1,7 +1,10 @@
 import React from 'react'
-import { View, Text, TextInput, Button, Alert } from 'react-native'
+import { View, Text, TextInput, Button, Alert, Image } from 'react-native'
 // import { StackActions, NavigationActions } from 'react-navigation'
 import firebase from '../../FB/firebase'
+import { Container, Content, Footer, Header } from 'native-base'
+import styleTemplate from '../templates/styleTemplate'
+import styles from './styles/styles'
 
 export default class SignUpView extends React.Component {
   constructor(props) {
@@ -30,54 +33,83 @@ export default class SignUpView extends React.Component {
 
   render() {
     return (
-      <View style={{ paddingTop: 50, alignItems: 'center' }}>
+      <Container
+        style={styleTemplate.container}
+      >
+        <Header>
+          <View
+            style={styles.pixiLogo}
+          >
+            <Image
+              source={require('../../../assets/pixe2.png')}
+            />
 
-        <Text>
-          Sign Up Here!
-        </Text>
+          </View>
 
-        <TextInput
-          value={this.state.email}
-          onChangeText={(text) => { this.setState({ email: text }) }}
-          placeholder='E-Mail'
-          keyboardType='email-address' // recognizes if email is not properly formatted
-          autoCapitalize='none' // will capitalize every first letter if not turned off
-          autoCorrect={false}
-        />
+        </Header>
+        <Content
+          contentContainerStyle={styleTemplate.bottom}
+        >
 
-        <Text>
-          Password
-        </Text>
 
-        <TextInput
-          value={this.state.password}
-          onChangeText={(text) => { this.setState({ password: text }) }}
-          placeholder='Enter Password'
-          secureTextEntry // creates fuzz or stars to obscure pass entry
-          autoCapitalize='none'
-          autoCorrect={false}
-        />
+        </Content>
+        <Footer
+          style={styles.footer}
+        >
+          <Content
+            contentContainerStyle={styles.authBox}
+          >
 
-        <TextInput
-          value={this.state.passwordConfirm}
-          onChangeText={(text) => { this.setState({ passwordConfirm: text }) }}
-          placeholder='Confirm Password'
-          secureTextEntry // creates fuzz or stars to obscure pass entry
-          autoCapitalize='none'
-          autoCorrect={false}
-        />
+            <Button
+              contentContainerStyle={styles.signUpAuthButtons}
+              title='Sign Up'
+              onPress={this.onSignUpPress}
+            />
+            <TextInput
+              style={{marginBottom: 12, marginTop: 30, color: '#A6A6A6'}}
+              value={this.state.email}
+              onChangeText={(text) => { this.setState({ email: text }) }}
+              placeholder='Enter E-Mail'
+              keyboardType='email-address' // recognizes if email is not properly formatted
+              autoCapitalize='none' // will capitalize every first letter if not turned off
+              autoCorrect={false}
+            />
 
-        <Button
-          title='Sign Up'
-          onPress={this.onSignUpPress}
-        />
+            <TextInput
+              style={{marginBottom: 3, color: '#A6A6A6'}}
+              value={this.state.password}
+              onChangeText={(text) => { this.setState({ password: text }) }}
+              placeholder='Enter Password'
+              secureTextEntry // creates fuzz or stars to obscure pass entry
+              autoCapitalize='none'
+              autoCorrect={false}
+            />
 
-        <Button
-          title='Go Back to Log In'
-          onPress={this.onBackToLoginPress}
-        />
+            <TextInput
+              style={{marginBottom: 3, color: '#A6A6A6'}}
+              value={this.state.passwordConfirm}
+              onChangeText={(text) => { this.setState({ passwordConfirm: text }) }}
+              placeholder='Confirm Password'
+              secureTextEntry // creates fuzz or stars to obscure pass entry
+              autoCapitalize='none'
+              autoCorrect={false}
+            />
+<Content
+  style={{bottom: 0, marginTop: 50 }}
+>
+            <Button
+              title='Go Back to Log In'
+              style={styles.forgot}
+              onPress={this.onBackToLoginPress}
+            />
+</Content>
 
-      </View>
+          </Content>
+
+        </Footer>
+      </Container>
+
+
     )
   }
 }

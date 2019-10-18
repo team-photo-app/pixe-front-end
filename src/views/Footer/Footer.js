@@ -61,6 +61,7 @@ class CameraFooter extends Component {
           <Footer style={styles.footer} >
             <FooterTab style={styles.alignCenter}>
               <Icon
+                    style={{fontSize: 50}}
                     name="camera"
                     title="Click to Access Camera"
                     onPress={this.onChooseImagePress}>

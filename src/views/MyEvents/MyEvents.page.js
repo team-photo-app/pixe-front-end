@@ -9,6 +9,7 @@ import {
   Button, Icon, Left, Right
 } from 'native-base'
 import styleTemplate from '../templates/styleTemplate'
+import styles from './styles/styles';
 import { connect } from 'react-redux'
 import { Image, ScrollView } from 'react-native'
 import { TouchableHighlight } from 'react-native-gesture-handler'
@@ -29,8 +30,9 @@ class MyEvents extends React.Component {
 
   render () {
     return (
-      <Container>
+      <Container style={{backgroundColor:'#F7F8FC'}}>
         <Header style={styleTemplate.header}>
+
           <Left>
             <Button transparent onPress={() => this.props.navigation.openDrawer()}>
               <Icon
@@ -40,59 +42,74 @@ class MyEvents extends React.Component {
             </Button>
           </Left>
           <Right>
-            <Text>PixE</Text>
+            <Image
+              style={{marginBottom: 8}}
+              source={require('../../../assets/pixe_sm.png')}
+              />
           </Right>
         </Header>
         <Content>
-          <ScrollView>
-            <Text>My EVENTS</Text>
-            <View style={{ margin: 10 }}>
-              <Text onPress={() => { this.props.navigation.navigate('Gallery') }}>Birthday Party</Text>
+          <ScrollView
+            contentContainerStyle={styleTemplate.container}>
+          <View style={styles.eventPhotoWrapper}>
+              <Text style={styles.text} onPress={() => { this.props.navigation.navigate('Gallery') }}>Birthday Party</Text>
               <Image
-                style={{ height: 300, width: 300 }}
+                style={styles.eventPhotos}
                 source={{ uri: 'https://firebasestorage.googleapis.com/v0/b/pixe-b18c8.appspot.com/o/pixe%2Fevents%2Fbirthday.jpg?alt=media&token=4569c3e0-55af-404e-88af-5069aadcf9f4' }}
               />
             </View>
-            <View style={{ margin: 10 }}>
-              <Text onPress={() => { this.props.navigation.navigate('Gallery') }}>Cupcake Party</Text>
+                     <View style={styles.eventPhotoWrapper}>
+
+              <Text style={styles.text} onPress={() => { this.props.navigation.navigate('Gallery') }}>Cupcake Party</Text>
               <Image
-                style={{ height: 300, width: 300 }}
+                style={styles.eventPhotos}
+
                 source={{ uri: 'https://firebasestorage.googleapis.com/v0/b/pixe-b18c8.appspot.com/o/pixe%2Fevents%2Fcupcakes.jpg?alt=media&token=60d31bd4-6248-4b65-ae75-944b53815a4a' }}
               />
             </View>
-            <View style={{ margin: 10 }}>
-              <Text onPress={() => { this.props.navigation.navigate('Gallery') }}>Funeral Party</Text>
+                     <View style={styles.eventPhotoWrapper}>
+
+              <Text style={styles.text} onPress={() => { this.props.navigation.navigate('Gallery') }}>Funeral Party</Text>
               <Image
-                style={{ height: 300, width: 300 }}
+                style={styles.eventPhotos}
+
                 source={{ uri: 'https://firebasestorage.googleapis.com/v0/b/pixe-b18c8.appspot.com/o/pixe%2Fevents%2Ffuneral.jpg?alt=media&token=60a37fdb-addb-4934-b7e2-ecc7c252dc81' }}
               />
             </View>
-            <View style={{ margin: 10 }}>
-              <Text onPress={() => { this.props.navigation.navigate('Gallery') }}>Halloween Party</Text>
+                     <View style={styles.eventPhotoWrapper}>
+
+              <Text style={styles.text} onPress={() => { this.props.navigation.navigate('Gallery') }}>Halloween Party</Text>
               <Image
-                style={{ height: 300, width: 300 }}
+                style={styles.eventPhotos}
+
                 source={{ uri: 'https://firebasestorage.googleapis.com/v0/b/pixe-b18c8.appspot.com/o/pixe%2Fevents%2Fhalloween.jpg?alt=media&token=0f037ef4-c586-41a7-b957-da099176a70d' }}
               />
             </View>
-            <View style={{ margin: 10 }}>
-              <Text onPress={() => { this.props.navigation.navigate('Gallery') }}>Therapy Session</Text>
+                     <View style={styles.eventPhotoWrapper}>
+
+              <Text style={styles.text} onPress={() => { this.props.navigation.navigate('Gallery') }}>Therapy Session</Text>
               <Image
-                style={{ height: 300, width: 300 }}
+                style={styles.eventPhotos}
+
                 source={{ uri: 'https://firebasestorage.googleapis.com/v0/b/pixe-b18c8.appspot.com/o/pixe%2Fevents%2Fhappyhour.jpg?alt=media&token=4bb81ee3-ebe5-4393-b597-63258eb25870' }}
               />
             </View>
-            <View style={{ margin: 10 }}>
-              <Text onPress={() => { this.props.navigation.navigate('Gallery') }}>Thanksgiving at Gram-Grams</Text>
+                     <View style={styles.eventPhotoWrapper}>
+
+              <Text style={styles.text} onPress={() => { this.props.navigation.navigate('Gallery') }}>Thanksgiving at Gram-Grams</Text>
               <Image
-                style={{ height: 300, width: 300 }}
+                style={styles.eventPhotos}
+
                 source={{ uri: 'https://firebasestorage.googleapis.com/v0/b/pixe-b18c8.appspot.com/o/pixe%2Fevents%2Fthanksgiving.jpg?alt=media&token=875480e8-bd89-4085-ab20-5dec11e1153a' }}
               />
             </View>
-            <View style={{ margin: 10 }}>
-              <Text>Keller Wedding</Text>
+                     <View style={styles.eventPhotoWrapper}>
+
+              <Text style={styles.text}>Keller Wedding</Text>
               <TouchableHighlight onPress={() => { this.props.navigation.navigate('Gallery') }}>
                 <Image
-                  style={{ height: 300, width: 300 }}
+                  style={styles.eventPhotos}
+
                   source={{ uri: 'https://firebasestorage.googleapis.com/v0/b/pixe-b18c8.appspot.com/o/pixe%2Fevents%2Fwedding.jpg?alt=media&token=5da3e83d-0781-4e60-92e3-7f5e3c6c4e1b' }}
                 />
               </TouchableHighlight>

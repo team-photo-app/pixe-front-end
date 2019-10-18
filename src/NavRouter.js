@@ -19,9 +19,9 @@ const AppNavigator = createDrawerNavigator(
   {
     LoginView: {
       screen: LoginView,
-      navigationOptions: ({navigation}) => ({
-        drawerLockMode: 'locked-closed'
-      })
+      // navigationOptions: ({navigation}) => ({
+      //   drawerLockMode: 'locked-closed'
+      // })
     },
     SignUpView: {
       screen: SignUpView,
@@ -40,7 +40,7 @@ const AppNavigator = createDrawerNavigator(
     // Landing: {screen: Landing},
   }, {
     initialRouteName: 'LoginView',
-    drawerWidth: 300,
+    drawerWidth: 225,
     contentOptions: {},
     contentComponent: props => <SideBar {...props} />
   }
