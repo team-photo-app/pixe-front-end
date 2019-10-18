@@ -6,9 +6,8 @@ import {
   Footer,
   Content,
   Container,
-  Button, Icon, Left, Right,
+  Button, Icon, Left, Right
 } from 'native-base'
-import styles from './styles/styles';
 import styleTemplate from '../templates/styleTemplate'
 import { connect } from 'react-redux'
 import { Image, ScrollView } from 'react-native'
@@ -36,7 +35,8 @@ class MyEvents extends React.Component {
             <Button transparent onPress={() => this.props.navigation.openDrawer()}>
               <Icon
                 style={styleTemplate.menu}
-                name="menu" />
+                name='menu'
+              />
             </Button>
           </Left>
           <Right>
@@ -45,7 +45,6 @@ class MyEvents extends React.Component {
         </Header>
         <Content>
           <ScrollView>
-            {this.state.isReady ? console.log(this.state.eventList[1][0]) : null}
             <Text>My EVENTS</Text>
             <View style={{ margin: 10 }}>
               <Text onPress={() => { this.props.navigation.navigate('Gallery') }}>Birthday Party</Text>
@@ -100,10 +99,9 @@ class MyEvents extends React.Component {
             </View>
           </ScrollView>
         </Content>
-        <Footer style={styleTemplate.footer}
-        />
+        <Footer style={styleTemplate.footer} />
       </Container>
-    );
+    )
   }
 }
 

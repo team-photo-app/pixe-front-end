@@ -1,39 +1,40 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Text, View, FlatList } from 'react-native'
+import PropTypes from 'prop-types'
+import { List, Text, View, FlatList, Button, ItemComponent } from 'react-native'
+import firebase from '../../FB/firebase'
+// const database = firebase.database()
 
 class EventList extends React.Component {
-  // constructor (props) {
-  //   super(props)
-  //   this.state = {
-  //     eventList: {}
-  //   }
-  // }
+  constructor (props) {
+    super(props)
+    this.state = {
+      eventList: []
+    }
+  }
 
   // on create event, also upload to storage splash image
   // fetch event splash image
 
-  // componentDidMount () {
-  //   const eventList = this.props.events || {}
-  //   this.setState((prevState) => {
-  //     return { ...prevState, eventList }
-  //   })
-  // }
+  componentDidMount () {
+    firebase.database().ref('users/test').set({ message: 'hello', time: 'now' })
+      .then(() => { console.log('yay?') })
+      .catch((error) => { console.log(error) })
+    // database.ref('/pictures').push()
+  }
 
-  // shouldComponentUpdate (nextProps, nextState) {
-  //   const propBool = Object.keys(nextProps.events) !== Object.keys(this.props.events)
-  //   let stateBool =
-  //   console.log(Object.keys(nextProps.events), Object.keys(nextState.eventList))
-  // }
+  shouldComponentUpdate (prevProps) {
+    return prevProps.events !== this.props.events
+  }
 
   render () {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignContent: 'center' }}>
         <Text>TODO: Event List</Text>
+        {/* <Button title='hitme' onPress={() => { console.log(this.state.eventList) }} /> */}
         {/* <FlatList
-          data={Object.entries(this.state.eventList)}
+          data={Object.entries(this.props.events)}
           renderItem={(itemData) => {
-            console.log('flatlist', itemData.item)
             return (
               <View>
                 <Text>ID: {itemData.item[0]}</Text>
@@ -52,6 +53,10 @@ class EventList extends React.Component {
 
 const mapStateToProps = (state) => {
   return { events: state.userReducer.events }
+}
+
+EventList.propTypes = {
+  events: PropTypes.object
 }
 
 export default connect(mapStateToProps)(EventList)

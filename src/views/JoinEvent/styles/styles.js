@@ -1,16 +1,16 @@
-import { StyleSheet, Dimensions } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native'
 
-const { width: winWidth, height: winHeight } = Dimensions.get('window');
+const { width: winWidth, height: winHeight } = Dimensions.get('window')
 export default StyleSheet.create({
   alignCenter: {
     flex: 1,
     flexDirection: 'column',
-    justifyContent: 'flex-end',
+    justifyContent: 'flex-end'
   },
 
   icon: {
     flex: 1,
-    alignItems: 'center',
+    alignItems: 'center'
 
   }
 })

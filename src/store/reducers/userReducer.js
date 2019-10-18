@@ -36,6 +36,11 @@ const initState = {
   }
 }
 
+// const initState = {
+//   username: '',
+//   events: {}
+// }
+
 const userReducer = (state = initState, action) => {
   switch (action.type) {
     case 'SIGN_UP_SUCCESS':
@@ -48,6 +53,8 @@ const userReducer = (state = initState, action) => {
       prevState.events = { ...prevState.events }
       prevState.events[eventID] = { eventName, eventDescription }
       return prevState
+    case 'SIGN_IN_SUCCESS':
+      return { ...state, username: action.payload }
     default:
       return state
   }
