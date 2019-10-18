@@ -17,21 +17,19 @@ import MyEvents from './views/MyEvents/MyEvents.page'
 
 const AppNavigator = createDrawerNavigator(
   {
-<<<<<<< HEAD
-    LoginView: { screen: LoginView },
-    SignUpView: { screen: SignUpView },
-    ForgotPasswordView: { screen: ForgotPasswordView },
-=======
-    LoginView: { screen: LoginView,
+    LoginView: {
+      screen: LoginView,
       navigationOptions: ({navigation}) => ({
         drawerLockMode: 'locked-closed'
       })
     },
-    SignUpView: { screen: SignUpView,
-      navigationOptions: ({navigation}) => ({
+    SignUpView: {
+      screen: SignUpView,
+      navigationOptions: ({ navigation }) => ({
         drawerLockMode: 'locked-closed'
-      })},
->>>>>>> 275ce7b18000e89dbde4ac00afc51073fca32ac3
+      })
+    },
+    ForgotPasswordView: { screen: ForgotPasswordView },
     CameraPage: { screen: CameraPage },
     JoinEvent: { screen: JoinEvent },
     QR: { screen: QR },
@@ -41,11 +39,11 @@ const AppNavigator = createDrawerNavigator(
     EventList: { screen: EventList }
     // Landing: {screen: Landing},
   }, {
-  initialRouteName: 'LoginView',
-  drawerWidth: 300,
-  contentOptions: {},
-  contentComponent: props => <SideBar {...props} />
-}
+    initialRouteName: 'LoginView',
+    drawerWidth: 300,
+    contentOptions: {},
+    contentComponent: props => <SideBar {...props} />
+  }
 )
 
 const defaultStateForAppNav = AppNavigator.router.getStateForAction
