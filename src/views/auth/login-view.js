@@ -39,12 +39,16 @@ export default class LoginView extends React.Component {
       <Container
         style={styleTemplate.container}
       >
-        <View>
-          <Image
-            style={{width: 50, height: 50}}
-            require={require('../../../assets/pixe.png')}
-          />
-        </View>
+        <Header>
+          <View
+            style={styles.pixiLogo}
+          >
+            <Image
+              source={require('../../../assets/pixe.png')}
+            />
+          </View>
+
+        </Header>
         <Content>
           {/*  <Content*/}
           {/*    contentContainerStyle={styleTemplate.alignCenter}*/}
@@ -68,9 +72,15 @@ export default class LoginView extends React.Component {
           {/*      autoCorrect={false}*/}
           {/*    />*/}
         </Content>
+
+
         <Content
+
+
           contentContainerStyle={styles.bottom}
         >
+
+
           <Button
             contentContainerStyle={styles.authButtons}
             title='Log In'

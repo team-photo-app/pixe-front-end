@@ -31,6 +31,14 @@ export default {
     borderWidth: 3,
     borderColor: 'black',
     backgroundColor: '#FFFEFF',
-
   },
+
+  pixiLogo: {
+    alignItems: 'center',
+    flex: 1,
+    justifyContent: 'flex-start',
+    padding: null,
+    marginTop: 200,
+
+  }
 }
