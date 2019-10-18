@@ -108,10 +108,7 @@ class EventCreate extends React.Component {
             />
           </Left>
 
-          <TextInput
-            style={styles.mockDescribe}
-            placeholder='Describe your event...'
-          />
+
         </Content>
         <Content contentContainerStyle={{ flex: 1, justifyContent: 'center' }}>
           {this.state.isFormFilled

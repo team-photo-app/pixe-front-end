@@ -15,11 +15,11 @@ import {
 import { Image } from 'react-native'
 
 const routeData = [
-  {
-    name: 'Gallery',
-    route: 'Gallery',
-    icon: 'albums'
-  },
+  // {
+  //   name: 'Gallery',
+  //   route: 'Gallery',
+  //   icon: 'albums'
+  // },
   {
     name: 'Join Event',
     route: 'JoinEvent',
