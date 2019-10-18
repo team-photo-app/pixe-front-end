@@ -47,46 +47,65 @@ class LoginView extends React.Component {
 
   render () {
     return (
-      <View style={{ paddingTop: 50, alignItems: 'center' }}>
-        <Text>
-          Log In
-        </Text>
-        <TextInput
-          value={this.state.email}
-          onChangeText={(text) => { this.setState({ email: text }) }}
-          placeholder='E-Mail'
-          keyboardType='email-address' // recognizes if email is not properly formatted
-          autoCapitalize='none' // will capitalize every first letter if not turned off
-          autoCorrect={false}
-        />
-        <Text>
-          Password
-        </Text>
-        <TextInput
-          value={this.state.password}
-          onChangeText={(text) => { this.setState({ password: text }) }}
-          placeholder='Enter Password'
-          secureTextEntry // creates fuzz or stars to obscure pass entry
-          autoCapitalize='none'
-          autoCorrect={false}
-        />
-        <Button
-          title='Log In'
-          onPress={this.handleOnLoginPress}
-        />
-        <Button
-          title='Create New Account'
-          onPress={this.handleOnCreateAccountPress}
-        />
-        <Button
-          title='Forgot Password?'
-          onPress={this.handleOnForgotPasswordPress}
-        />
-        <Button
-          title='Login Testuser'
-          onPress={() => { this.setState({ email: 'testuser123@gmail.com', password: 'testing' }) }}
-        />
-      </View>
+
+      <Container
+        style={styleTemplate.container}
+      >
+        <Header>
+          <View
+            style={styles.pixiLogo}
+          >
+            <Image
+              source={require('../../../assets/pixe.png')}
+            />
+          </View>
+
+        </Header>
+            <Content
+              contentContainerStyle={styleTemplate.login}
+            >
+              <TextInput
+                title='Enter Username'
+                value={this.state.email}
+                onChangeText={(text) => { this.setState({ email: text }) }}
+                placeholder='E-Mail'
+                keyboardType='email-address' // recognizes if email is not properly formatted
+                autoCapitalize='none' // will capitalize every first letter if not turned off
+                autoCorrect={false}
+              />
+              <TextInput
+                title='Enter Password'
+                value={this.state.password}
+                onChangeText={(text) => { this.setState({ password: text }) }}
+                placeholder='Enter Password'
+                secureTextEntry // creates fuzz or stars to obscure pass entry
+                autoCapitalize='none'
+                autoCorrect={false}
+              />
+
+          <Button title='Login Testuser' onPress={() => { this.setState({ email: 'testuser123@gmail.com', password: 'testing' }) }} />
+        </Content>
+        <Footer
+          style={styles.footer}
+        >
+          <Button
+            contentContainerStyle={styles.authButtons}
+            title='Log In'
+            onPress={this.handleOnLoginPress}
+          />
+          <Button
+            contentContainerStyle={styles.authButtons}
+            title='Create New Account'
+            onPress={this.handleOnCreateAccountPress}
+          />
+          <Button
+            title='Forgot Password?'
+            onPress={this.handleOnForgotPasswordPress}
+          />
+        </Footer>
+      </Container>
+
+    
     )
   }
 }

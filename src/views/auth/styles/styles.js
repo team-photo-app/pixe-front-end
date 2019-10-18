@@ -24,13 +24,32 @@ export default {
 
   authButtons: {
     position: 'absolute',
-    bottom: 100,
-    width: 60,
-    height: 20,
-    padding: 20,
-    borderWidth: 3,
+    bottom: 0,
     borderColor: 'black',
     backgroundColor: '#FFFEFF',
-
   },
+
+  pixiLogo: {
+    alignItems: 'center',
+    flex: 1,
+    justifyContent: 'flex-start',
+    padding: null,
+    marginTop: 200,
+    marginBottom: 50,
+  },
+  footer: {
+    alignItems: 'center',
+    flex: 1,
+    flexDirection: 'column',
+    marginTop: 0,
+    bottom: 0,
+  },
+  login: {
+
+    alignItems: 'center',
+    flex: 1,
+    flexDirection: 'column',
+    marginTop: 300,
+    bottom: 0,
+  }
 }
