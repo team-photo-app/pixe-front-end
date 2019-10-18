@@ -5,6 +5,9 @@ import PropTypes from 'prop-types'
 import { View, Text, TextInput, Button } from 'react-native'
 import { StackActions, NavigationActions } from 'react-navigation'
 import firebase from '../../FB/firebase'
+import styleTemplate from '../templates/styleTemplate'
+import styles from './styles/styles';
+import { Content, Container, Icon, Footer, Header} from 'native-base'
 
 // const database = firebase.database()
 

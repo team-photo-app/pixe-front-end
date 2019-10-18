@@ -20,7 +20,7 @@ class Picture extends React.Component {
     return (
       <View style={styles.pictureWrapper}>
         <Lightbox
-          backgroundColor='rgba(0, 0, 0, .9)'
+          backgroundColor='black'
           renderContent={renderOpen}
         >
           <Image
