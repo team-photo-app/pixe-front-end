@@ -55,12 +55,12 @@ npm install
 ```
 
 ## Contributing
-Chance Harmon
-Eric Huang
-Gina Pultorak
-Josh Nebe
-Lyndsey Thomas
-Sam Gnuschke
+* Chance Harmon
+* Eric Huang
+* Gina Pultorak
+* Josh Nebe
+* Lyndsey Thomas
+* Sam Gnuschke
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
