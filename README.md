@@ -1,6 +1,6 @@
 ![logo](https://github.com/team-photo-app/photo-app/blob/master/pixe-5.png)
 
-# An events pic app
+# An events pics app
 
 PixE is an event pix app that allows users to create events and have guests capture and share pictures.
 
