@@ -4,7 +4,7 @@
 
 PixE is an event pix app that allows users to create events and have guests capture and share pictures.
 
-![screen shots] (https://github.com/team-photo-app/photo-app/blob/master/pixe-6.png)
+![screenshots](https://github.com/team-photo-app/photo-app/blob/master/pixe-6.png)
 
 ## Installation and Scripts
 
